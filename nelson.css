@@ -1,0 +1,230 @@
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital@0;1&family=Playfair+Display:ital@0;1&display=swap');
+
+/* constant definitions */
+:root{
+    --color-background: #a2ba96; /* muted green */
+    --color-background2: #526a46; /* darker green */
+    --color-titlebar: #aae; /* #b3b3b3;  grey */
+    --color-textbox: #faf9f7; /* brownish off-white */
+    --color-text: black;
+    --color-highlight: darkblue; 
+    --color-textshadow-light: gainsboro;
+    --color-textshadow-dark: Gray;
+    --background-logo-size: 25rem;
+    --site-title: 'Top of the South Community Shares';
+    --site-subtitle: 'Tasman Bay – Motueka to Nelson';
+}
+html{
+    height: 100%;
+    font-size: 14px;
+    font-family: 'Playfair Display', cursive;
+}
+h0, h1, h2, h3{
+    font-family: 'Cabin', sans-serif;
+    font-style: normal;
+}
+h1{
+    font-size: 2rem;
+    font-style: normal;
+    margin: 0;
+}
+h2{
+    font-size: 1.5rem;
+}
+p{
+    font-variant-ligatures: common-ligatures;
+    line-height: 1.75rem;
+}
+body{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to bottom left, var(--color-background), var(--color-background2));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--color-text);
+    padding-top: 5rem;
+}
+body::before{ /* logo in the background; needs transparent body background */
+    background-image: url('totscosh-logo.svg');
+    background-size: var(--background-logo-size) var(--background-logo-size);
+    background-attachment: fixed;
+    background-position: left top;
+    background-repeat: no-repeat;
+    content: '';
+    display: block;
+    overflow: hidden;
+    height:  var(--background-logo-size);
+    width:  var(--background-logo-size);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    animation: logo-rotation 300s linear;
+    overflow: visible;
+    z-index: 1;
+    opacity: 0.08;
+    pointer-events: none;
+}
+.content{
+    background-color: var(--color-textbox);
+}
+header{
+    font-family: 'Playfair Display', cursive;
+    background-image: url('handcircle-logo.svg');
+    background-size: 3.5rem;
+    background-repeat: no-repeat;
+    background-position: 0rem 0rem;
+    margin: 0;
+    padding-right: 1rem;
+    width: 100%;
+    height: 5.5rem;
+    padding-left: 3.5rem;
+    color: var(--color-textbox);
+    background-color: var(--color-textbox);
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 3;
+}
+header::before{
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: bold;
+    color: var(--color-background2);
+    content: var(--site-title);
+}
+header span::before{
+    display: block;
+    margin-top: 0px;
+    font-size: 1rem;
+    font-style: italic;
+    color: black;
+    content: 
+        var(--site-subtitle);
+}
+header h1{
+    position: relative;
+    margin-top: 0rem;
+    display: block;
+    float: left;
+    color: var(--color-text);
+    position: absolute;
+    display: none;
+}
+div.titleblock{
+    padding-left: 3rem;
+}
+div.top-menu{
+    min-width: 50%;
+    height: 1rem;
+    margin-top: 0.5rem;
+    background-color: var(--color-textbox);
+    padding: 0;
+    margin: 0.5rem;
+    text-align: center;
+    position: relative;
+    font-family: 'Cabin', sans-serif;
+}
+
+
+div.main-column{
+    display:flex;
+    float:left;
+    min-width: 15rem;
+    margin-left: 3.5rem;
+    padding: 0;
+    overflow:hidden;
+    flex-direction:column;
+}
+
+div.main-item{
+    background-color: var(--color-textbox);
+    margin-top: 1rem;
+    padding: 1rem;
+    height: auto;
+    border-radius: 0.5rem;
+    clear: left;
+}
+div.item-title{
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    max-width: 50ch;
+    margin: auto;
+}
+div.item-date{
+    text-align: center;
+    padding-bottom: 1rem;
+    width: 100%;
+    max-width: 50ch;
+    margin: auto;
+}
+div.item-text{
+    text-align: left;
+    padding-bottom: 1rem;
+    width: 100%;
+    max-width: 50ch;
+    margin: auto;
+}
+
+
+div.h-menu-item{
+    float: left;
+    margin: 1 rem;
+    padding: 0.25ch;
+    background-color: var(--color-textbox);
+    display: block;
+    color: black;
+    width: 6rem;
+    text-align: center;
+    border-left: solid 1px var(--color-background);
+    z-index: 3;
+}
+div.h-menu-item-last{
+    border-right: solid 1px var(--color-background);
+}
+div.menu-item:hover, div.menu-item-active{
+    background-color: var(--color-background2);
+    color: var(--color-textbox);
+    font-weight: bold;
+}
+
+div.side-column{
+    position:fixed;
+    top: 6.5rem;
+    right:2rem;
+    width: 18ch;
+    margin: 1rem;
+}
+div.side-menu{
+    float: left;
+    width: 11ch;
+    margin: auto;
+    background-color: var(--color-textbox);
+    font-family: 'Cabin', sans-serif;
+    padding:1em; 
+    border-radius:0.5em;
+}
+div.v-menu-item{
+    width: 10ch;
+    background-color: var(--color-textbox);
+    padding: 1ch 0ch 1ch 1ch;
+    z-index: 3;
+}
+div.v-menu-item-last{
+    background-color: var(--color-textbox);
+    z-index: 3;
+}
+
+/* rotation for logo */
+@keyframes logo-rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-359deg);
+    }
+  }
