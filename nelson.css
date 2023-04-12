@@ -39,7 +39,7 @@ p{
 body{
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(to bottom left, var(--color-background), var(--color-background2));
+    background-image: radial-gradient(at 25% 50%, var(--color-background), var(--color-background2));
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -60,7 +60,7 @@ body::before{ /* logo in the background; needs transparent body background */
     position: fixed;
     bottom: 0;
     right: 0;
-    animation: logo-rotation 300s linear;
+    animation: logo-rotation 120s linear infinite;
     overflow: visible;
     z-index: 1;
     opacity: 0.08;
@@ -86,16 +86,15 @@ header{
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 3;
 }
-header::before{
+header span.title::before{
     font-size: 1.5rem;
     font-style: normal;
     font-weight: bold;
     color: var(--color-background2);
     content: var(--site-title);
 }
-header span::before{
+header span.subtitle::before{
     display: block;
     margin-top: 0px;
     font-size: 1rem;
@@ -105,13 +104,7 @@ header span::before{
         var(--site-subtitle);
 }
 header h1{
-    position: relative;
-    margin-top: 0rem;
-    display: block;
-    float: left;
-    color: var(--color-text);
-    position: absolute;
-    display: none;
+    display: none; /* just for screen reader software */
 }
 div.titleblock{
     padding-left: 3rem;
@@ -127,21 +120,31 @@ div.top-menu{
     font-family: 'Cabin', sans-serif;
 }
 
+div.body-container{
+    display: flex;
+    flex-direction: row;
+}
 
 div.main-column{
-    display:flex;
+    flex-grow: 2;
+    flex-direction: column;
     float:left;
     min-width: 15rem;
+    max-width: calc(100%-15rem);
     margin-left: 3.5rem;
     padding: 0;
     overflow:hidden;
     flex-direction:column;
 }
 
+div.item{
+    max-width: 50ch;
+    margin: auto;
+    padding: 1rem;
+}
 div.main-item{
     background-color: var(--color-textbox);
     margin-top: 1rem;
-    padding: 1rem;
     height: auto;
     border-radius: 0.5rem;
     clear: left;
@@ -149,24 +152,13 @@ div.main-item{
 div.item-title{
     text-align: center;
     padding-top: 2rem;
-    padding-bottom: 1rem;
-    width: 100%;
-    max-width: 50ch;
-    margin: auto;
 }
 div.item-date{
     text-align: center;
-    padding-bottom: 1rem;
-    width: 100%;
-    max-width: 50ch;
-    margin: auto;
+    padding: 0.5rem;
 }
-div.item-text{
+div.item-text .item-comment{
     text-align: left;
-    padding-bottom: 1rem;
-    width: 100%;
-    max-width: 50ch;
-    margin: auto;
 }
 
 
@@ -192,20 +184,21 @@ div.menu-item:hover, div.menu-item-active{
 }
 
 div.side-column{
-    position:fixed;
-    top: 6.5rem;
-    right:2rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    float: left;
     width: 18ch;
     margin: 1rem;
 }
 div.side-menu{
-    float: left;
-    width: 11ch;
+    position:fixed;
+    width: 10ch;
     margin: auto;
     background-color: var(--color-textbox);
     font-family: 'Cabin', sans-serif;
     padding:1em; 
     border-radius:0.5em;
+    border: solid 1px var(--color-background2);
 }
 div.v-menu-item{
     width: 10ch;
@@ -225,5 +218,13 @@ div.v-menu-item-last{
     }
     to {
       transform: rotate(-359deg);
+    }
+  }
+  @keyframes logo-zoom {
+    from{
+        transform: scale(110%);
+    }
+    to{
+        transform: scale(100%);
     }
   }
