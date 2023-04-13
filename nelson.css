@@ -14,6 +14,7 @@
     --background-logo-size: 25rem;
     --site-title: 'Top of the South Community Shares';
     --site-subtitle: 'Tasman Bay – Motueka to Nelson';
+    --svg: url('data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><text font-family="system-ui" font-size="0.7rem" text-anchor="middle" x="50%" y="90%">🔗</text></svg>');
 }
 html{
     height: 100%;
@@ -35,9 +36,19 @@ h2{
 p{
     font-variant-ligatures: common-ligatures;
     line-height: 1.75rem;
+    hyphens: auto;
 }
 a, div.button,  div.h-menu-item, div.v-menu-item{
     transition-duration: 0.5s;
+}
+a::before{
+    content: "";
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    display: inline-block;
+    width: 1em;
+    height: 1em;
 }
 a, div.button{
     border-bottom: solid 4px var(--color-highlight);
@@ -78,7 +89,7 @@ body::before{ /* logo in the background; needs transparent body background */
     right: 0;
     animation: logo-rotation 120s linear infinite;
     overflow: visible;
-    z-index: 1;
+    z-index: -1;
     opacity: 0.08;
     pointer-events: none;
 }
@@ -102,6 +113,7 @@ header{
     position: fixed;
     left: 0;
     top: 0ch;
+    border-bottom: solid 1px var(--color-background);
 }
 header span.title::before{
     font-size: 1.5rem;
@@ -145,9 +157,8 @@ div.main-column{
     flex-grow: 2;
     flex-direction: column;
     float:left;
-    min-width: 15rem;
-    max-width: calc(100%-15rem);
-    margin-left: 3.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
     padding: 0;
     overflow:hidden;
     flex-direction:column;
@@ -201,31 +212,33 @@ div.h-menu-item{
 div.h-menu-item-last{
     border-right: solid 1px var(--color-background);
 }
-div.menu-item:hover, div.menu-item-active{
+div.menu-item:hover, div.menu-item-live{
     background-color: var(--color-background2);
     color: var(--color-textbox);
     font-weight: bold;
 }
 
 div.side-column{
-    flex-grow: 0;
-    flex-shrink: 0;
-    float: left;
-    width: 18ch;
+    flex: none;
+    float: right;
+    width:13ch;
     margin: 1rem;
+    height:calc(100%-4rem);
 }
 div.side-menu{
+    width:calc(100%-0.5rem);
+    min-width:9ch;
     position:fixed;
-    width: 10ch;
-    margin: auto;
     background-color: var(--color-textbox);
     font-family: 'Cabin', sans-serif;
-    padding:1em; 
+    padding:1ch; 
     border-radius:0.5em;
     border: solid 1px var(--color-background2);
+    overflow-y:auto;
+    overflow-x:hidden;
 }
 div.v-menu-item{
-    width: 9ch;
+    width: calc(100%-1rem);
     background-color: var(--color-textbox);
     padding: 1ch 0ch 1ch 1ch;
     z-index: 3;
@@ -233,6 +246,23 @@ div.v-menu-item{
 div.v-menu-item-last{
     background-color: var(--color-textbox);
     z-index: 3;
+}
+
+table{
+    align-content: center;
+    border-collapse: separate;
+    border-spacing: 1rem 2rem;
+}
+tr{
+    vertical-align:top;
+}
+td, th{
+    margin: 6ch; 
+}
+th{
+    font-weight: bold;
+    border-bottom: solid 2px var(--color-background);
+    
 }
 
 /* rotation for logo */

@@ -1,6 +1,92 @@
 <html>
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet"> 
+<style>
+    :root{
+        --svg: url('data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><text font-family="system-ui" font-size="0.7rem" text-anchor="middle" x="50%" y="90%">🔗</text></svg>');
+        }    
+    body{
+        background-image: radial-gradient(at 20% 50%, midnightblue, darkgreen);
+        font-family: Raleway, Georgia, 'Times New Roman', Times, serif, sans-serif;
+        line-height: 150%;
+        color: white;
+    }
+    h1, h2, h3{
+        font-family:"Permanent Marker", sans-serif;
+    }
+    a{
+        color: white
+    }
+    a::before{
+    content: "";
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    }
+    .button{
+        background-color: #4CAF50; /* Green */
+        color: white;
+        padding: 0.5rem 2rem 0.5rem 2rem;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border: solid 4px #4CAF50;
+    }
+    .button:hover{
+        border-top: solid 4px lightgreen;
+        border-left: solid 4px lightgreen;
+        border-bottom: solid 4px darkgreen;
+        border-right: solid 4px darkgreen;
+        transition-duration: 0.3s;
+    }
+    .button:active{
+        border-top: solid 4px darkgreen;
+        border-left: solid 4px darkgreen;
+        border-bottom: solid 4px lightgreen;
+        border-right: solid 4px lightgreen;
+        transition-duration: 0.1s;
+    }
+}
+
+</style>    
+</head>
+<body>
+
+<div>
     <h1>Mockups for totscosh theme</h1>
+    <h2>Sample pages</h2>
+    <a class="button" href="mockup-news.html">News</a>
+    <a class="button" href="mockup-offers.html">Offers</a>
+
+    <h2>What this is</h2>
     <ul>
-    <li> <a href="mockup-news.html">News</a></li>
+        <li> Interface visuals only.</li>
+        <li> Hyperlinks aren't active.</li>
     </ul>
+
+    <h2>Design thoughts</h2>
+    <ul>
+        <li> Legibility</li>
+            <ul>
+                <li> Spatial and typographic hierarchies</li>
+                <li> Wider line-spacing </li>
+                <li> Functional contrast for people with low vision</li>
+                <li> Accessible to text-to-speech screen readers for people with <em>very</em> low vision</li>
+                <li> Low clutter to minimise cognitive overloadling</li>
+            </ul>
+        <li> Simple navigation via 3 menus</li>
+            <ol>
+                <li>Top: activity contexts – the main workhorse pages</li>
+                <li>Side: actions and administration</li>
+                <li>Side: categories for wants and offers</li>
+            </ol>
+        <li> Adapts to screen or browser size</li>
+    </ul>
+</div>
+</body>
+
 </html>
