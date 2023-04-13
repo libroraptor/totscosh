@@ -63,6 +63,10 @@ a:active{
     transition-duration: 0.2s;
     background-color: var(--color-highlight);
 }
+img.thumbnail{
+    max-width: 6rem;
+    max-height: 6rem;
+}
 body{
     height: 100%;
     width: 100%;
