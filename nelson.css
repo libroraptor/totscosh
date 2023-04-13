@@ -14,7 +14,7 @@
     --background-logo-size: 25rem;
     --site-title: 'Top of the South Community Shares';
     --site-subtitle: 'Tasman Bay – Motueka to Nelson';
-    --svg: url('data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><text font-family="system-ui" font-size="0.7rem" text-anchor="middle" x="50%" y="90%">🔗</text></svg>');
+    --svg-link: url('data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><text font-family="system-ui" font-size="0.7rem" text-anchor="middle" x="50%" y="90%">🔗</text></svg>');
 }
 html{
     height: 100%;
@@ -44,15 +44,16 @@ a, div.button,  div.h-menu-item, div.v-menu-item{
 a::before{
     content: "";
     background-color: currentColor;
-    -webkit-mask-image: var(--svg);
-    mask-image: var(--svg);
+    color: var(--color-highlight);
+    -webkit-mask-image: var(--svg-link);
+    mask-image: var(--svg-link);
     display: inline-block;
     width: 1em;
     height: 1em;
 }
 a, div.button{
-    border-bottom: solid 4px var(--color-highlight);
-    padding: 0 4px 0 4px;
+    border-bottom: solid 0.2ch var(--color-highlight);
+    padding: 0;
 }
 a:hover{
     background-color: var(--color-background);
@@ -118,6 +119,7 @@ header{
     left: 0;
     top: 0ch;
     border-bottom: solid 1px var(--color-background);
+    z-index:3;
 }
 header span.title::before{
     font-size: 1.5rem;
@@ -227,10 +229,8 @@ div.side-column{
     float: right;
     width:13ch;
     margin: 1rem;
-    height:calc(100%-4rem);
 }
 div.side-menu{
-    width:calc(100%-0.5rem);
     min-width:9ch;
     position:fixed;
     background-color: var(--color-textbox);
@@ -262,11 +262,15 @@ tr{
 }
 td, th{
     margin: 6ch; 
+    max-width: 40ch;
 }
 th{
     font-weight: bold;
     border-bottom: solid 2px var(--color-background);
     
+}
+td:hover{
+    text-decoration: underline 0.3ch var(--color-highlight);
 }
 
 /* rotation for logo */
