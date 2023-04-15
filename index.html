@@ -11,9 +11,24 @@
         font-family: Raleway, Georgia, 'Times New Roman', Times, serif, sans-serif;
         line-height: 150%;
         color: white;
+        column-count: 2;
+        padding: 1rem;
+    }
+    section{
+        break-inside: avoid;
     }
     h1, h2, h3{
         font-family:"Permanent Marker", sans-serif;
+    }
+    h1 {size: 1.5rem; 
+        background-size:100%;
+        background-image: radial-gradient(at 0% 0%, yellow,white);
+        color: transparent;        
+        background-clip:text;
+    }
+    h2 {size: 1rem;}
+    ul, ol{
+        margin: 1rem 0 1rem auto;
     }
     a{
         color: white
@@ -35,13 +50,14 @@
         text-decoration: none;
         display: inline-block;
         border: solid 4px #4CAF50;
-    }
-    .button:hover{
         border-top: solid 4px lightgreen;
         border-left: solid 4px lightgreen;
         border-bottom: solid 4px darkgreen;
         border-right: solid 4px darkgreen;
+    }
+    .button:hover{
         transition-duration: 0.3s;
+        text-shadow: 0 0 0.5ch yellow;
     }
     .button:active{
         border-top: solid 4px darkgreen;
@@ -50,24 +66,28 @@
         border-right: solid 4px lightgreen;
         transition-duration: 0.1s;
     }
-}
-
 </style>    
 </head>
 <body>
 
 <div>
-    <h1>Mockups for totscosh theme</h1>
+    <h1>TOTSCoSh theme mockups</h1>
+    <section>
     <h2>Sample pages</h2>
     <a class="button" href="mockup-news.html">News</a>
     <a class="button" href="mockup-offers.html">Offers</a>
-
+    <a class="button" href="mockup-login.html">Login page</a>
+    </section>
+    
+    <section>
     <h2>What this is</h2>
     <ul>
         <li> Interface visuals only.</li>
         <li> Hyperlinks aren't active.</li>
     </ul>
+    </section>
 
+    <section>
     <h2>Design thoughts</h2>
     <ul>
         <li> Legibility</li>
@@ -84,8 +104,13 @@
                 <li>Side: actions and administration</li>
                 <li>Side: categories for wants and offers</li>
             </ol>
-        <li> Adapts to screen or browser size</li>
+        <li> Adaptive </li>
+            <ul> 
+                <li>try adjusting screen orientation and browser size</li>
+                <li>try adjusting the font size</li>
+            </ul>
     </ul>
+    </section>
 </div>
 </body>
 

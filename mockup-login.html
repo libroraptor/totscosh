@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="nelson.css">
+  <style>
+    html{
+        scroll-behavior: smooth;
+        transition-duration: 1s;
+    }
+    a{
+        color:white;
+        border: none;
+        text-decoration: none;
+    }
+    a::before{
+        content:none;
+    }
+    div.login{
+        background-color: var(--color-textbox);
+        max-width: 40ch;
+        text-align: center;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        margin:auto;
+        margin-bottom: 10rem;
+    }
+    table{
+        border-spacing: 0.2rem 0.2rem;
+    }
+    div.login-button{
+        background-color: var(--color-background);
+        color: white;
+        font-weight: bold;
+        width: 8rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        margin: 1rem auto 1rem auto;
+        border-radius: 99rem;
+        text-transform:uppercase;
+        font-size: 0.8rem;
+        border: solid 0.1ch white;
+    }
+    div.login-button:hover{
+            transform:scale(133%);
+            transition-duration:0.5s;
+            text-shadow: 1px 1px var(--color-background2);
+    }
+    div.login-button:active{
+        background-color: var(--color-highlight);
+    }
+</style>
+</head>
+<body>
+    <div class="login">
+        <div style="color:var(--color-background2); font-family:'Playfair Display';font-size:2rem;">
+            Top of the South <br> Community Shares
+        </div>
+
+        <img src="handcircle-logo.svg" height="75px" width="75px" alt="Community Shares logo" style="margin:2em;">
+
+        <form>
+            <table>
+            <tr><td style="width:11ch;text-align:right;">Username:</td> <td><input type="text" name="username"></td></tr>
+            <tr><td style="width:11ch;text-align:right;">Password:</td>  <td><input type="password" name="password"></td></tr>
+            </table>
+        </form>
+
+        <div class="login-button">
+            Log in
+        </div>
+
+        <hr width="50%" style="margin-top:1rem,margin-bottom:1rem;">
+
+        <div class="login-button" style="display:inline-block">
+            Reset password
+        </div>
+        <div class="login-button" style="display:inline-block">
+            Create account
+        </div>
+        <div class="login-button" style="display:inline-block">
+            <a href="#about">
+            Find out more
+            </a>
+        </div>
+    </div>
+
+    <div class="login" style="text-align: left;">
+        <h1 id="about">What’s TOTSCoSH?</h1>
+
+
+
+<p>Lorem ipsum dolor sit amet. Sed esse enim vel corrupti officia et voluptas doloribus est libero reiciendis a consequatur incidunt vel laboriosam optio. Sed velit dignissimos aut asperiores possimus nam incidunt quaerat non cumque porro et commodi voluptates est dolor quam ut quia nihil.
+
+<p>Rem doloribus alias ea veniam galisum 33 illum architecto ut velit necessitatibus. Cum excepturi accusamus ex enim excepturi ad sint consequatur sed dignissimos consequatur qui delectus nihil At sapiente dolores.
+
+<p>Ab quis sint rem modi laudantium et assumenda ipsam et velit similique sit necessitatibus error qui eligendi dolorem. Quo velit laborum aut voluptatem quae quo minus galisum qui accusamus dolorum ut culpa iste! Et illo quia et odio voluptatem 33 vero odit ea voluptatibus molestias.
+
+
+    </div>
+
+</body>
+</html> 
