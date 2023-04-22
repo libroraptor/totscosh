@@ -1,0 +1,113 @@
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400;1,600;1,900&display=swap');
+/* constant definitions */
+:root{
+    --color-background: #a2ba96; /* muted green */
+    --color-background2: #526a46; /* darker green */
+    --color-titlebar: #aae; /* #b3b3b3;  grey */
+    --color-textbox: #faf9f7; /* brownish off-white */
+    --color-text: black;
+    --color-highlight: orange; 
+    --color-textshadow-light: gainsboro;
+    --color-textshadow-dark: Gray;
+    --background-logo-size: 25rem;
+    --site-title: 'Top of the South Community Shares';
+    --site-subtitle: 'Tasman Bay – Motueka to Nelson';
+    --svg-link: url('data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><text font-family="system-ui" font-size="0.7rem" text-anchor="middle" x="50%" y="90%">🔗</text></svg>');
+    --topbutton-width: 6rem;
+    --font-main: 'Cabin';
+    --font-accent: 'Playfair Display';
+}
+html{
+    height: 100%;
+    font-size: 14px;
+    font-family: var(--font-main), sans-serif;
+    font-variant-ligatures: common-ligatures;
+    transition-duration: 0.3s;
+}
+h1, h2, h3{
+    font-family: var(--font-accent), cursive;
+    font-style: normal;
+}
+h1{
+    font-size: 2rem;
+    font-style: normal;
+    margin: 0;
+}
+h2{
+    font-size: 1.5rem;
+}
+p{
+    line-height: 1.75rem;
+    hyphens: auto;
+}
+a::before{
+    content: "";
+    background-color: currentColor;
+    color: var(--color-highlight);
+    -webkit-mask-image: var(--svg-link);
+    mask-image: var(--svg-link);
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+}
+div.button:active{
+    transition-duration: 0.2s;
+    background-color: var(--color-highlight);
+}
+img.thumbnail{
+    max-width: 6rem;
+    max-height: 6rem;
+}
+body{
+    height: 100%;
+    width: 100%;
+    background-image: radial-gradient(at 25% 50%, var(--color-background), var(--color-background2));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--color-text);
+    padding-top: 5rem;
+}
+body::before{ /* logo in the background; needs transparent body background */
+    background-image: url('totscosh-logo.svg');
+    background-size: var(--background-logo-size) var(--background-logo-size);
+    background-attachment: fixed;
+    background-position: left top;
+    background-repeat: no-repeat;
+    content: '';
+    display: block;
+    overflow: hidden;
+    height:  var(--background-logo-size);
+    width:  var(--background-logo-size);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    animation: logo-rotation 180s linear infinite;
+    overflow: visible;
+    z-index: -1;
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+/* rotation for logo */
+@keyframes logo-rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-359deg);
+    }
+  }
+header h1{
+    display: none; /* invisible text, just for screen reader software that will miss the signal from the menu highlighting */
+}
+header{
+    display: grid;
+    grid-auto-columns: max-content auto 1fr auto;
+    grid-template-rows: auto auto auto;
+    width: 100%;
+    grid-gap: 0;
+}
+
