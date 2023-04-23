@@ -1,0 +1,232 @@
+<html>
+<head>
+    <link rel="stylesheet" href="nelson-grid.css">
+    <style>
+.trade-card{
+    min-width: 15rem;
+    height: 12rem;
+    background-color: var(--color-textbox);
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    text-align: left;
+    float: left;
+    display: grid;
+    grid-template-columns: 9rem minmax(10ch,1fr);
+    grid-template-rows: 1.5rem 1.5rem 1.5rem 1.5rem 1.5rem minmax(3rem,1fr) ;
+    grid-template-areas:
+        "image ."
+        "image location"
+        "image member"
+        "image price"
+        "image ."
+        "description description"
+    ;
+    grid-gap: 0.5ch;
+}
+.trade-image{
+    grid-area: image;
+    width: 9rem;
+    height: 9rem;
+    object-fit: cover;
+    border-radius: 9rem;
+    box-shadow: 0ch 0ch 0.3ch grey;
+    transition-duration: 0.3s;
+}
+.trade-image:hover{
+    transition-duration: 0.3s;
+    transform: scale(110%) translateX(-0.5ch) translateY(-0.5ch);
+    box-shadow: 0.5ch 0.5ch 1ch grey;
+    border-radius:0;
+    border: solid 2px var(--color-textbox) ;
+}
+.trade-description{
+    grid-area: description;
+    max-height: 4rem;
+    overflow: hidden;
+    column-count: 1;
+    column-width: 20ch;
+}
+.trade-description::before{}
+.trade-member{
+    grid-area: member;
+}
+.trade-member::before{
+    content: "🥸";
+    margin-right: 1ch;
+}
+.trade-location{
+    grid-area: location;
+    min-width: 10ch;
+    max-width: 30ch;
+}
+.trade-location::before{
+    content: "🏠";
+    margin-right: 1ch;
+}
+.trade-price{
+    grid-area: price;
+}
+.trade-price::before{
+    content: "💰";
+    margin-right: 1ch;
+}
+.trade-price::after{
+    content: "ℏ";
+}
+
+.category{
+    padding: 0.5ch;
+}
+.category:hover{
+    background-color: var(--color-background);
+    text-shadow: 0 0 0.5ch var(--color-text-glow);
+    border-radius: 0.5ch;
+    transition-duration: 0.3s;
+}
+    </style>
+</head>
+
+<body class="wholescreen">
+<div id="logo" class="logo">
+    <img src="handcircle-logo.svg" style="width:5rem; height:5rem;" alt="" class="logo-appear">
+</div>
+
+<div class="sitetitle">
+</div>
+
+<div class="subtitle">
+</div>
+
+<div class="nav-menu">
+    <div class="button nav-button">Offers</div>
+    <div class="button nav-button">Wants</div>
+    <div class="button nav-button button-live">News</div>
+    <div class="button nav-button">Admin</div>
+</div>
+
+<div class="footer">
+    [page footer – is there anything to put here?]
+</div>
+
+<div class="main-content-area">
+    <div class="action-menu">
+        <div class="button">Post an offer</div>
+        <div class="button">Post a want</div>
+        <div class="button">Transact</div>
+        <hr>
+        <div class="button">About</div>
+        <div class="button">Account</div>
+        <div class="button">Contact</div>
+        <hr>
+        <div class="button attention-pulse">Help</div>
+    </div>
+    <div class="category-menu">
+        <div class="category">All </div>
+        <hr>
+        <div class="category">Advice &amp; tuition</div>
+        <div class="category">Clothing &amp; textiles</div>
+        <div class="category">Food &amp; drink</div>
+        <div class="category">Home &amp; garden</div>
+        <div class="category">Personal</div>
+        <div class="category">Professional</div>
+        <div class="category">Stuff</div>
+        <div class="category">Trades</div>
+        <div class="category">Transport</div>
+        <div class="category">Miscellaneous</div>
+    </div>
+    <div class="content-container">
+
+        <h1>Offers</h1>
+    
+        <div class="trade-card">
+            <a><img src="pic1.png" class="trade-image"></a>
+            <div class="trade-description">
+                I may struggle with geography, but I'm sure I'm somewhere around here. She did a happy dance because all of the socks from the dryer matched.
+                I am never at home on Sundays.
+            </div>
+            <div class="trade-location">Bilbar Springs</div>
+            <div class="trade-member">Galaad Corleone </div>
+            <div class="trade-price">2 </div>
+        </div>
+
+        <div class="trade-card">
+            <a><img src="pic2.png" class="trade-image"></a>
+            <div class="trade-description">
+                The Guinea fowl flies through the air with all the grace of a turtle.
+            </div>
+            <div class="trade-member">Astaroth Weasley </div>
+            <div class="trade-location">Soubridge</div>
+            <div class="trade-price">3.5</div>
+        </div>
+        <div class="trade-card">
+            <a><img src="pic3.png" class="trade-image"></a>
+            <div class="trade-description">
+                His ultimate dream fantasy consisted of being content and sleeping eight hours in a row. The light in his life was actually a fire burning all around him.
+            </div>
+            <div class="trade-member">Ebenezer Targaryen </div>
+            <div class="trade-location">Burchamken</div>
+            <div class="trade-price">1</div>
+        </div>
+        <div class="trade-card">
+            <a><img src="pic4.png" class="trade-image"></a>
+            <div class="trade-description">
+                He always wore his sunglasses at night.
+            </div>
+            <div class="trade-member">Hector Finch </div>
+            <div class="trade-location">Domitia</div>
+            <div class="trade-price">6</div>
+        </div>
+
+        <div class="trade-card">
+            <a><img src="pic2.png" class="trade-image"></a>
+            <div class="trade-description">
+                The Guinea fowl flies through the air with all the grace of a turtle.
+            </div>
+            <div class="trade-member">Astaroth Weasley </div>
+            <div class="trade-location">Soubridge</div>
+            <div class="trade-price">3.5</div>
+        </div>
+        <div class="trade-card">
+            <a><img src="pic1.png" class="trade-image"></a>
+            <div class="trade-description">
+                I may struggle with geography, but I'm sure I'm somewhere around here. She did a happy dance because all of the socks from the dryer matched.
+                I am never at home on Sundays.
+            </div>
+            <div class="trade-location">Bilbar Springs</div>
+            <div class="trade-member">Galaad Corleone </div>
+            <div class="trade-price">2 </div>
+        </div>
+        <div class="trade-card">
+            <a><img src="pic3.png" class="trade-image"></a>
+            <div class="trade-description">
+                His ultimate dream fantasy consisted of being content and sleeping eight hours in a row. The light in his life was actually a fire burning all around him.
+            </div>
+            <div class="trade-member">Ebenezer Targaryen </div>
+            <div class="trade-location">Burchamken</div>
+            <div class="trade-price">1</div>
+        </div>
+        <div class="trade-card">
+            <a><img src="pic1.png" class="trade-image"></a>
+            <div class="trade-description">
+                I may struggle with geography, but I'm sure I'm somewhere around here. She did a happy dance because all of the socks from the dryer matched.
+                I am never at home on Sundays.
+            </div>
+            <div class="trade-location">Bilbar Springs</div>
+            <div class="trade-member">Galaad Corleone </div>
+            <div class="trade-price">2 </div>
+        </div>
+        <div class="trade-card">
+            <a><img src="pic4.png" class="trade-image"></a>
+            <div class="trade-description">
+                He always wore his sunglasses at night.
+            </div>
+            <div class="trade-member">Hector Finch </div>
+            <div class="trade-location">Domitia</div>
+            <div class="trade-price">6</div>
+        </div>
+        </div>
+
+
+</body>
+</html>

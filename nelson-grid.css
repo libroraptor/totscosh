@@ -5,22 +5,25 @@
 :root{
     --color-background: #a2ba96; /* muted green */
     --color-background2: #526a46; /* darker green */
-    --color-titlebar: #aae; /* #b3b3b3;  grey */
     --color-textbox: #faf9f7; /* brownish off-white */
     --color-text: black;
+    --color-hover-text: white;
     --color-highlight: orange; 
     --color-textshadow-light: gainsboro;
     --color-textshadow-dark: Gray;
+    --color-text-glow: white;
     --background-logo-size: 25rem;
     --site-title: 'Top of the South Community Shares';
     --site-subtitle: 'Tasman Bay – Motueka to Nelson';
     --svg-link: url('data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><text font-family="system-ui" font-size="0.7rem" text-anchor="middle" x="50%" y="90%">🔗</text></svg>');
+    --svg-left-dingbat: url('data:image/svg+xml;utf8,<svg viewBox="0 0 18 15" xmlns="http://www.w3.org/2000/svg"><text font-family="system-ui" font-size="1.5rem" text-anchor="middle" x="50%" y="100%">☞</text></svg>');
+    --svg-right-dingbat: url('data:image/svg+xml;utf8,<svg viewBox="0 0 18 15" xmlns="http://www.w3.org/2000/svg"><text font-family="system-ui" font-size="1.5rem" text-anchor="middle" x="53%" y="100%">☜</text></svg>');
     --topbutton-width: 6rem;
     --font-main: 'Cabin';
     --font-accent: 'Playfair Display';
 }
+/* typography */
 html{
-    height: 100%;
     font-size: 14px;
     font-family: var(--font-main), sans-serif;
     font-variant-ligatures: common-ligatures;
@@ -30,10 +33,12 @@ h1, h2, h3{
     font-family: var(--font-accent), cursive;
     font-style: normal;
 }
-h1{
+h1{ /* used only against background, mainly for text-to-speech screen readers */
+    color: var(--color-text);
     font-size: 2rem;
     font-style: normal;
     margin: 0;
+    text-shadow: 0 0 2ch var(--color-text-glow);
 }
 h2{
     font-size: 1.5rem;
@@ -42,27 +47,24 @@ p{
     line-height: 1.75rem;
     hyphens: auto;
 }
-a::before{
+a.textanchor::before{
     content: "";
     background-color: currentColor;
     color: var(--color-highlight);
-    -webkit-mask-image: var(--svg-link);
     mask-image: var(--svg-link);
     display: inline-block;
     width: 1em;
     height: 1em;
 }
-div.button:active{
-    transition-duration: 0.2s;
-    background-color: var(--color-highlight);
-}
 img.thumbnail{
     max-width: 6rem;
     max-height: 6rem;
 }
+
+/* whole-viewport grid */
 body{
-    height: 100%;
-    width: 100%;
+    margin: 0;
+    overflow: hidden;
     background-image: radial-gradient(at 25% 50%, var(--color-background), var(--color-background2));
     background-repeat: no-repeat;
     background-size: cover;
@@ -89,7 +91,6 @@ body::before{ /* logo in the background; needs transparent body background */
     opacity: 0.08;
     pointer-events: none;
 }
-
 /* rotation for logo */
 @keyframes logo-rotation {
     from {
@@ -99,14 +100,226 @@ body::before{ /* logo in the background; needs transparent body background */
       transform: rotate(-359deg);
     }
   }
-header h1{
-    display: none; /* invisible text, just for screen reader software that will miss the signal from the menu highlighting */
-}
-header{
+.wholescreen{ /* master container for layout */
     display: grid;
-    grid-auto-columns: max-content auto 1fr auto;
-    grid-template-rows: auto auto auto;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: max-content minmax(15rem, 1fr) minmax(8rem, 38rem);
+    grid-template-rows: minmax(2rem, fit-content) minmax(1rem, fit-content) 1fr max-content;
+    grid-template-areas: 
+        "logo title nav" /* page head */
+        "logo subtitle nav" /* more page head */
+        "main main main" /* main content */
+        "foot foot foot"; /* page foot */
     grid-gap: 0;
+}
+
+/* header elements */
+.logo{
+    grid-area: logo;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    align-content: center;
+    background-color: var(--color-textbox);
+}
+.logo-appear{
+    animation: logo-appear 3s cubic-bezier(0.3, 3, 0.9, 1) 1;
+}
+@keyframes logo-appear {
+    from  {transform: rotate(120deg)}
+    to    {transform: rotate(0deg)}
+}
+.sitetitle{
+    grid-area: title;
+    min-height: 1rem;
+    height: stretch;
+    width: stretch;
+    padding: 0;
+    color: var(--color-background2);
+    background-color: var(--color-textbox);
+    display: flex;
+    align-items: end;
+}
+.sitetitle::before{
+    font-family: var(--font-accent), cursive;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 800;
+    height: stretch;
+    content: var(--site-title);
+}
+.subtitle{
+    grid-area: subtitle;
+    background-color: var(--color-textbox);
+    min-height: 1rem;
+    height: stretch;
+    width: stretch;
+    display: flex;
+    align-items: start;
+}
+.subtitle::before{
+    font-family: var(--font-accent), cursive;
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 100%;
+    color: var(--color-text);
+    content: var(--site-subtitle);
+}
+.nav-menu{
+    grid-area: nav;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    align-content: center;
+    justify-content: right;
+    background-color: var(--color-textbox);
+}
+.footer{
+    grid-area: foot;
+    min-height: 1rem;
+    background-color: var(--color-textbox);
+    color: var(--color-text);
+}
+
+/* buttons and links */
+.button{
+    border-radius: 10rem; 
+    margin: 0.25ch; 
+    transition-duration: 0.3s;     
+    border: solid 1px var(--color-background2);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-main), sans-serif;
+    font-weight: bold;
+    justify-content: center;
+    align-self: center;
+    height: 2rem;
+    width: 7rem;
+    text-align: center;
+    line-height: 2rem;
+}
+.button:hover{ 
+    background-color: var(--color-background2); 
+    color: var(--color-hover-text); 
+    text-shadow: 0 0 0.5ch var(--color-text-glow); 
+    scale: 120%; 
+    box-shadow: 0 0.5ch 0.5ch grey; 
+    z-index:9;
+}
+.button-live{ 
+    color: var(--color-hover-text); 
+    background-color: var(--color-background2);
+}
+.nav-button{
+    display: flex;
+    float: left;
+}
+.attention-pulse{
+    animation: attention-pulse 60s infinite;
+
+}
+@keyframes attention-pulse {
+    97.5%   {transform: rotate(0deg) scale(100%)}
+    98.0%   {transform: rotate(-3deg) scale(110%)}
+    98.5%   {transform: rotate(-6deg) scale(110%)}
+    99.0%   {transform: rotate(0deg) scale(100%)}
+}
+
+/* miscellaneous page elements */
+hr{
+    border:0;
+    background-color: var(--color-background);
+    width: 50%;
+    height: 1px;
+}
+
+/* main content area for user activities */
+.main-content-area{
+    grid-area: main;
+    display: flex;
+    flex-direction: row;
+    border-top: solid 1px var(--color-background2);
+    border-bottom: solid 1px var(--color-background2);
+    min-height: 0;
+    max-height: 90vh;
+}
+.content-container{ /* 'content' is news, wants, offers, info, action dialogs */
+    float: left;
+    width: 100%;
+    overflow: scroll;
+    text-align: center;
+    padding-right: 1rem;
+}
+.content-container::after{
+    content: "— ✦ —";
+    display: block;
+    clear: both;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+/* news containers */
+.news-item{
+    clear: left;
+    background-color: var(--color-textbox);
+    color: var(--color-text);
+    margin: 1rem auto 1rem auto;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    max-width: 70rem;
+}
+.news-headline{
+    text-align: center;
+    margin-top: 1rem;
+}
+.news-date{
+    text-align: center;
+}
+.news-date::before{
+    margin-right: 1ch;
+    content: "";
+    background-color: var(--color-background);
+    mask-image: var(--svg-left-dingbat);
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+}
+.news-date::after{
+    margin-left: 1ch;
+    content: "";
+    background-color: var(--color-background);
+    mask-image: var(--svg-right-dingbat);
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+}
+.news-body{
+    text-align: left;
+    margin: 1rem auto 1rem auto;
+    column-width: 30ch;
+    column-count: 3;
+    column-gap: 2rem;
+    column-rule: solid 1px var(--color-background);
+}
+
+/* side menus */
+.action-menu{
+    float: left;
+    background-color: var(--color-textbox);
+    color: var(--color-text);
+    border-radius: 0.5rem;
+    padding: 1ch;
+    margin:1rem;
+    height: fit-content;
+}
+.category-menu{
+    float: left;
+    width: 15ch;
+    background-color: var(--color-textbox);
+    border-radius: 0.5rem;
+    padding: 1ch;
+    margin: 1rem;
+    overflow: scroll;
 }
 
