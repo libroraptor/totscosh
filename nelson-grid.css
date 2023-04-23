@@ -68,7 +68,6 @@ body{
     background-size: cover;
     background-attachment: fixed;
     color: var(--color-text);
-    padding-top: 5rem;
 }
 body::before{ /* logo in the background; needs transparent body background */
     background-image: url('totscosh-logo.svg');
