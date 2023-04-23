@@ -7,7 +7,8 @@
     height: 12rem;
     background-color: var(--color-textbox);
     padding: 1rem;
-    margin: 0.5rem;
+    border: solid 0.5ch var(--color-textbox);
+    margin: 0.5ch;
     border-radius: 0.5rem;
     text-align: left;
     float: left;
@@ -24,21 +25,35 @@
     ;
     grid-gap: 0.5ch;
 }
+.trade-card.post-new{
+    grid-template-areas:
+        "whole-card whole-card"
+        "whole-card whole-card"
+        "whole-card whole-card"
+        "whole-card whole-card"
+        "whole-card whole-card"
+        "whole-card whole-card"
+    ;
+}
+.trade-card:hover{
+    box-shadow: 0.5ch 0.5ch 1ch black;
+    transition-duration: 0.3s;
+    z-index:9;
+    border: solid 0.5ch var(--color-highlight);
+}
+.trade-card:hover .trade-image{
+    transition-duration: 0.3s;
+    border-radius:0;
+    transform: rotate(-5deg);
+    box-shadow: 0.1ch 0.1ch 0.3ch black;
+}
 .trade-image{
     grid-area: image;
     width: 9rem;
     height: 9rem;
     object-fit: cover;
     border-radius: 9rem;
-    box-shadow: 0ch 0ch 0.3ch grey;
     transition-duration: 0.3s;
-}
-.trade-image:hover{
-    transition-duration: 0.3s;
-    transform: scale(110%) translateX(-0.5ch) translateY(-0.5ch);
-    box-shadow: 0.5ch 0.5ch 1ch grey;
-    border-radius:0;
-    border: solid 2px var(--color-textbox) ;
 }
 .trade-description{
     grid-area: description;
@@ -138,6 +153,14 @@
     <div class="content-container">
 
         <h1>Offers</h1>
+
+        <div class="trade-card post-new">
+            <div style="grid-area: whole-card; text-align: center; place-items:center;">
+            <p>Post a new offer.</p>
+            <p style="font-size:300%">+</p>
+
+            </div>
+        </div>
     
         <div class="trade-card">
             <a><img src="pic1.png" class="trade-image"></a>
