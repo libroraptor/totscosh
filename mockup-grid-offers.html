@@ -2,116 +2,151 @@
 <head>
     <link rel="stylesheet" href="nelson-grid.css">
     <style>
-.trade-card{
-    min-width: 15rem;
-    max-height: 15rem;
+
+.hamburger-button{
     background-color: var(--color-textbox);
-    padding: 1rem;
-    border: solid 0.5ch var(--color-textbox);
-    margin: 0.5ch;
-    border-radius: 0.5rem;
-    text-align: left;
-    display: inline-grid;
-    grid-template-columns: 9rem 9rem;
-    grid-template-rows: 1.5rem 1.5rem 1.5rem 1.5rem 1.5rem minmax(2.5em,1fr) ;
-    grid-template-areas:
-        "image ."
-        "image location"
-        "image member"
-        "image price"
-        "image ."
-        "description description"
-    ;
-    grid-gap: 0.5ch;
-    vertical-align: top;
-}
-.trade-card.post-new{
-    grid-template-areas:
-        "whole-card whole-card"
-        "whole-card whole-card"
-        "whole-card whole-card"
-        "whole-card whole-card"
-        "whole-card whole-card"
-        "whole-card whole-card"
-    ;
-}
-.trade-card:hover{
-    box-shadow: 0.5ch 0.5ch 1ch black;
-    transition-duration: 0.3s;
-    z-index:9;
-    border: solid 0.5ch var(--color-highlight);
-}
-.trade-card:hover .trade-image{
-    transition-duration: 0.3s;
-    border-radius:0;
-    transform: rotate(-5deg);
-    box-shadow: 0.1ch 0.1ch 0.3ch black;
-}
-.trade-image{
-    grid-area: image;
-    width: 9rem;
-    height: 9rem;
-    object-fit: cover;
-    border-radius: 9rem;
-    transition-duration: 0.3s;
-}
-.trade-description{
-    grid-area: description;
-    max-height: 5em;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; /* start showing ellipsis when 2rd line is reached */
-}
-.trade-description::before{}
-.trade-member{
-    grid-area: member;
-    min-width: 10ch;
-    max-width: 30ch;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-.trade-member::before{
-    content: "🥸";
-    margin-right: 1ch;
-    overflow: hidden;
-}
-.trade-location{
-    grid-area: location;
-    min-width: 10ch;
-    max-width: 30ch;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-.trade-location::before{
-    content: "🏠";
-    margin-right: 1ch;
-}
-.trade-price{
-    grid-area: price;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-.trade-price::before{
-    content: "💰";
-    margin-right: 1ch;
-}
-.trade-price::after{
-    content: "ℏ";
+    grid-area: nav title subtitle main;
 }
 
-.category{
-    padding: 0.5ch;
+/* hamburger adapted from https://codepen.io/alvarotrigo/pen/PoJGObg */
+.toggler{
+    z-index: 12;
+    height: 3rem;
+    width: 3rem;
+    position: absolute;
+    top: 0rem;
+    left: calc(100% - 3.5rem);
+    cursor: pointer;
+    opacity: 0;
 }
-.category:hover{
+
+.hamburger{
+    z-index: 11;
+    position: absolute;
+    top: 0rem;
+    left: calc(100% - 3rem);
+    height: 3rem;
+    width: 3rem;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CREATING THE MIDDLE LINE OF THE HAMBURGER : */
+
+.hamburger > div{
+    position: relative;
+    background: var(--color-text);
+    height: 0.4ch;
+    width: 2rem;
+    transition: all  0.4s ease;
+}
+
+/* CREATING THE TOP AND BOTTOM LINES : 
+TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
+
+.hamburger > div::before,
+.hamburger > div::after{
+    content: '';
+    position: absolute;
+    top: -1ch;
+    background: var(--color-text);
+    width: 2rem;
+    height: 0.4ch;
+    transition: all  0.4s ease;
+}
+
+.hamburger > div::after{
+    top: 10px;
+}
+
+/* IF THE TOGGLER IS IN ITS CHECKED STATE, THEN SETTING THE BACKGROUND OF THE MIDDLE LAYER TO COMPLETE BLACK AND OPAQUE :  */
+
+.toggler:checked + .hamburger > div{
+    background: var(--color-textbox);
+}
+
+.toggler:checked + .hamburger > div::before{
+    top: 0;
+    transform: rotate(45deg);
+    background: var(--color-text);
+}
+
+/* AND ROTATING THE TOP AND BOTTOM LINES :  */
+
+.toggler:checked + .hamburger > div::after{
+    top: 0;
+    transform: rotate(135deg);
+    background: var(--color-text);
+}
+
+
+/* MAIN MENU WITH THE WHITE BACKGROUND AND THE TEXT :  */
+
+.hamburger-menu{
+    background: var(--color-textbox);
+    z-index: 10;
+    width: 1rem;
+    height: 3rem;
+    position: absolute;
+    top: 0rem;
+    left: calc(100%);
+    padding: 2rem;
+
+  
+    transition: all 0.4s ease;
+}
+
+/* IF THE TOGGLER IS CHECKED, THEN INCREASE MENU WIDTH   */
+
+.toggler:checked ~ .hamburger-menu{
+    width: 10rem;
+    height: 30rem;
+    left: calc(100% - 14rem);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.75ch black;
+}
+
+
+/* STYLING THE LIST :  */
+
+.hamburger-menu >  div > ul{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 70px;
+
+  
+  /* HIDDEN INITIALLY  :  */
+  
+    visibility: hidden;
+}
+
+.hamburger-menu > div > ul > li{
+    list-style: none;
+    padding: 0.5rem;
+    background-color: var(--color-textbox);
+    width: 100%;
+}
+
+.hamburger-menu > div > ul > li > a{
+    color: var(--color-text);
+}
+
+/* WHEN THE TOGGLER IS CHECKED, CHANGE THE VISIBILITY TO VISIBLE :  */
+
+.toggler:checked ~ .hamburger-menu > div > ul{
+    transition: visibility 0.4s ease;
+    transition-delay: 0.1s;
+    visibility: visible;
+}
+
+.toggler:checked ~ .hamburger-menu > div > ul > li > a:hover{
     background-color: var(--color-background);
-    text-shadow: 0 0 0.5ch var(--color-text-glow);
-    border-radius: 0.5ch;
-    transition-duration: 0.3s;
 }
+
+
     </style>
 </head>
 
@@ -130,16 +165,26 @@
     <div class="button nav-button">Offers</div>
     <div class="button nav-button">Wants</div>
     <div class="button nav-button button-live">News</div>
-    <div class="button nav-button">Community</div>
-    <div class="button nav-button">Account</div>
-    <div class="button nav-button">Admin</div>
-    <div class="button nav-button">About</div>
-    <div class="button nav-button attention-pulse">Help</div>
+    <div class="button nav-button">Bank</div>
 </div>
 
-<div class="footer">
-    [page footer – is there anything to put here?]
+<!-- ====================================================================== -->
+
+<div class="hamburger-button">
+    <input type="checkbox" class="toggler">
+    <div class="hamburger"><div></div></div>
+    <div class="hamburger-menu">
+        <div class="category">About</div>
+        <div class="category">Account</div>
+        <div class="category">Community</div>
+        <div class="category">Contact</div>
+        <div class="category">Members</div>
+        <hr>   
+        <div class="category">Help</div>
+    </div>
 </div>
+
+<!-- ====================================================================== -->
 
 <div class="main-content-area">
     <div class="category-menu">

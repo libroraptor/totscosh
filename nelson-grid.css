@@ -47,6 +47,9 @@ p{
     line-height: 1.75rem;
     hyphens: auto;
 }
+a:hover{
+    cursor: pointer;
+}
 a.textanchor::before{
     content: "";
     background-color: currentColor;
@@ -108,9 +111,9 @@ body::before{ /* logo in the background; needs transparent body background */
     grid-template-rows: minmax(2rem, fit-content) minmax(1rem, fit-content) 1fr max-content;
     grid-template-areas: 
         "logo title nav" /* page head */
-        "logo subtitle nav" /* more page head */
-        "main main main" /* main content */
-        "foot foot foot"; /* page foot */
+        "logo subtitle nav " /* more page head */
+        "main main main " /* main content */
+        "foot foot foot "; /* page foot */
     grid-gap: 0;
 }
 
@@ -173,6 +176,7 @@ body::before{ /* logo in the background; needs transparent body background */
     height: 100%;
     align-content: center;
     justify-content: right;
+    padding-right: 4rem;
     background-color: var(--color-textbox);
 }
 .footer{
@@ -198,6 +202,7 @@ body::before{ /* logo in the background; needs transparent body background */
     width: 7rem;
     text-align: center;
     line-height: 2rem;
+    cursor: pointer;
 }
 .button:hover{ 
     background-color: var(--color-background2); 
@@ -324,3 +329,116 @@ hr{
     overflow: scroll;
 }
 
+/* trade cards */
+
+.trade-card{
+    min-width: 15rem;
+    max-height: 15rem;
+    background-color: var(--color-textbox);
+    padding: 1rem;
+    border: solid 0.5ch var(--color-textbox);
+    margin: 0.5ch;
+    border-radius: 0.5rem;
+    text-align: left;
+    display: inline-grid;
+    grid-template-columns: 9rem 9rem;
+    grid-template-rows: 1.5rem 1.5rem 1.5rem 1.5rem 1.5rem minmax(2.5em,1fr) ;
+    grid-template-areas:
+        "image ."
+        "image location"
+        "image member"
+        "image price"
+        "image ."
+        "description description"
+    ;
+    grid-gap: 0.5ch;
+    vertical-align: top;
+}
+.trade-card.post-new{
+    grid-template-areas:
+        "whole-card whole-card"
+        "whole-card whole-card"
+        "whole-card whole-card"
+        "whole-card whole-card"
+        "whole-card whole-card"
+        "whole-card whole-card"
+    ;
+}
+.trade-card:hover{
+    box-shadow: 0.5ch 0.5ch 1ch black;
+    transition-duration: 0.3s;
+    z-index:9;
+    border: solid 0.5ch var(--color-highlight);
+}
+.trade-card:hover .trade-image{
+    transition-duration: 0.3s;
+    border-radius:0;
+    transform: rotate(-5deg);
+    box-shadow: 0.1ch 0.1ch 0.3ch black;
+}
+.trade-image{
+    grid-area: image;
+    width: 9rem;
+    height: 9rem;
+    object-fit: cover;
+    border-radius: 9rem;
+    transition-duration: 0.3s;
+}
+.trade-description{
+    grid-area: description;
+    max-height: 5em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* start showing ellipsis when 2rd line is reached */
+}
+.trade-description::before{}
+.trade-member{
+    grid-area: member;
+    min-width: 10ch;
+    max-width: 30ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.trade-member::before{
+    content: "🥸";
+    margin-right: 1ch;
+    overflow: hidden;
+}
+.trade-location{
+    grid-area: location;
+    min-width: 10ch;
+    max-width: 30ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.trade-location::before{
+    content: "🏠";
+    margin-right: 1ch;
+}
+.trade-price{
+    grid-area: price;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.trade-price::before{
+    content: "💰";
+    margin-right: 1ch;
+}
+.trade-price::after{
+    content: "ℏ";
+}
+
+.category{
+    padding: 0.5ch;
+}
+.category:hover{
+    background-color: var(--color-background);
+    text-shadow: 0 0 0.5ch var(--color-text-glow);
+    border-radius: 0.5ch;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
