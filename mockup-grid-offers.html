@@ -11,9 +11,9 @@
     margin: 0.5ch;
     border-radius: 0.5rem;
     text-align: left;
-    float: left;
+    float:left;
     display: grid;
-    grid-template-columns: 9rem minmax(10ch,1fr);
+    grid-template-columns: 9rem 9rem;
     grid-template-rows: 1.5rem 1.5rem 1.5rem 1.5rem 1.5rem minmax(3rem,1fr) ;
     grid-template-areas:
         "image ."
@@ -65,15 +65,22 @@
 .trade-description::before{}
 .trade-member{
     grid-area: member;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .trade-member::before{
     content: "🥸";
     margin-right: 1ch;
+    overflow: hidden;
 }
 .trade-location{
     grid-area: location;
     min-width: 10ch;
     max-width: 30ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .trade-location::before{
     content: "🏠";
@@ -81,6 +88,9 @@
 }
 .trade-price{
     grid-area: price;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .trade-price::before{
     content: "💰";
@@ -140,6 +150,7 @@
         <div class="category">All </div>
         <hr>
         <div class="category">Advice &amp; tuition</div>
+        <div class="category">Art &amp; craft</div>
         <div class="category">Clothing &amp; textiles</div>
         <div class="category">Food &amp; drink</div>
         <div class="category">Home &amp; garden</div>

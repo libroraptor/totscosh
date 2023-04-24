@@ -250,6 +250,7 @@ hr{
     overflow: scroll;
     text-align: center;
     padding-right: 1rem;
+    align-items: baseline;
 }
 .content-container::after{
     content: "— ✦ —";
@@ -319,7 +320,7 @@ hr{
     background-color: var(--color-textbox);
     border-radius: 0.5rem;
     padding: 1ch;
-    margin: 1rem;
+    margin: 1rem 0.5rem 1rem 0;
     overflow: scroll;
 }
 
