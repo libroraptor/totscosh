@@ -4,17 +4,16 @@
     <style>
 .trade-card{
     min-width: 15rem;
-    height: 12rem;
+    max-height: 15rem;
     background-color: var(--color-textbox);
     padding: 1rem;
     border: solid 0.5ch var(--color-textbox);
     margin: 0.5ch;
     border-radius: 0.5rem;
     text-align: left;
-    float:left;
-    display: grid;
+    display: inline-grid;
     grid-template-columns: 9rem 9rem;
-    grid-template-rows: 1.5rem 1.5rem 1.5rem 1.5rem 1.5rem minmax(3rem,1fr) ;
+    grid-template-rows: 1.5rem 1.5rem 1.5rem 1.5rem 1.5rem minmax(2.5em,1fr) ;
     grid-template-areas:
         "image ."
         "image location"
@@ -24,6 +23,7 @@
         "description description"
     ;
     grid-gap: 0.5ch;
+    vertical-align: top;
 }
 .trade-card.post-new{
     grid-template-areas:
@@ -57,14 +57,17 @@
 }
 .trade-description{
     grid-area: description;
-    max-height: 4rem;
+    max-height: 5em;
     overflow: hidden;
-    column-count: 1;
-    column-width: 20ch;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* start showing ellipsis when 2rd line is reached */
 }
 .trade-description::before{}
 .trade-member{
     grid-area: member;
+    min-width: 10ch;
+    max-width: 30ch;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -127,7 +130,11 @@
     <div class="button nav-button">Offers</div>
     <div class="button nav-button">Wants</div>
     <div class="button nav-button button-live">News</div>
+    <div class="button nav-button">Community</div>
+    <div class="button nav-button">Account</div>
     <div class="button nav-button">Admin</div>
+    <div class="button nav-button">About</div>
+    <div class="button nav-button attention-pulse">Help</div>
 </div>
 
 <div class="footer">
@@ -135,17 +142,6 @@
 </div>
 
 <div class="main-content-area">
-    <div class="action-menu">
-        <div class="button">Post an offer</div>
-        <div class="button">Post a want</div>
-        <div class="button">Transact</div>
-        <hr>
-        <div class="button">About</div>
-        <div class="button">Account</div>
-        <div class="button">Contact</div>
-        <hr>
-        <div class="button attention-pulse">Help</div>
-    </div>
     <div class="category-menu">
         <div class="category">All </div>
         <hr>
