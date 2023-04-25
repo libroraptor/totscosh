@@ -2,157 +2,62 @@
 <head>
     <link rel="stylesheet" href="nelson-grid.css">
     <style>
-
-.hamburger-button{
-    background-color: var(--color-textbox);
-    grid-area: nav title subtitle main;
-}
-
-/* hamburger adapted from https://codepen.io/alvarotrigo/pen/PoJGObg */
-.toggler{
-    z-index: 12;
-    height: 3rem;
-    width: 3rem;
-    position: absolute;
-    top: 0rem;
-    left: calc(100% - 3.5rem);
+.trade-card-toggler{
+    z-index: 6;
+    grid-area: activator;
+    justify-self: right;
+    overflow: visible;
+    margin-top: -0.5rem;
+    left: 6rem;
+    height: 2.5rem;
+    width: 2.5rem;
     cursor: pointer;
-    opacity: 0;
+    opacity: 0.0;
+    accent-color: var(--color-highlight);
 }
-
-.hamburger{
-    z-index: 11;
-    position: absolute;
-    top: 0rem;
-    left: calc(100% - 3rem);
-    height: 3rem;
-    width: 3rem;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.trade-card-toggler:hover + .trade-card-zoom-button{
+    text-shadow: 0 0 0.5ch var(--color-highlight);
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    scale: 1.5;
 }
-
-/* CREATING THE MIDDLE LINE OF THE HAMBURGER : */
-
-.hamburger > div{
-    position: relative;
-    background: var(--color-text);
-    height: 0.4ch;
-    width: 2rem;
-    transition: all  0.4s ease;
+.trade-card-zoom-button{
+    height:2.5rem;
+    width: 2.5rem;
+    grid-area: activator;
+    justify-self: right;
+    overflow: visible;
 }
-
-/* CREATING THE TOP AND BOTTOM LINES : 
-TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
-
-.hamburger > div::before,
-.hamburger > div::after{
-    content: '';
-    position: absolute;
-    top: -1ch;
-    background: var(--color-text);
-    width: 2rem;
-    height: 0.4ch;
-    transition: all  0.4s ease;
-}
-
-.hamburger > div::after{
-    top: 10px;
-}
-
-/* IF THE TOGGLER IS IN ITS CHECKED STATE, THEN SETTING THE BACKGROUND OF THE MIDDLE LAYER TO COMPLETE BLACK AND OPAQUE :  */
-
-.toggler:checked + .hamburger > div{
-    background: var(--color-textbox);
-}
-
-.toggler:checked + .hamburger > div::before{
-    top: 0;
-    transform: rotate(45deg);
-    background: var(--color-text);
-}
-
-/* AND ROTATING THE TOP AND BOTTOM LINES :  */
-
-.toggler:checked + .hamburger > div::after{
-    top: 0;
-    transform: rotate(135deg);
-    background: var(--color-text);
-}
-
-
-/* MAIN MENU WITH THE WHITE BACKGROUND AND THE TEXT :  */
-
-.hamburger-menu{
-    background: var(--color-textbox);
-    z-index: 10;
-    width: 1rem;
-    height: 3rem;
-    position: absolute;
-    top: 0rem;
-    left: calc(100%);
-    padding: 2rem;
-
-  
-    transition: all 0.4s ease;
-}
-
-/* IF THE TOGGLER IS CHECKED, THEN INCREASE MENU WIDTH   */
-
-.toggler:checked ~ .hamburger-menu{
-    width: 10rem;
-    height: 30rem;
-    left: calc(100% - 14rem);
-    border-radius: 0.5rem;
-    box-shadow: 0 0 0.75ch black;
-}
-
-
-/* STYLING THE LIST :  */
-
-.hamburger-menu >  div > ul{
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 70px;
-
-  
-  /* HIDDEN INITIALLY  :  */
-  
-    visibility: hidden;
-}
-
-.hamburger-menu > div > ul > li{
-    list-style: none;
-    padding: 0.5rem;
-    background-color: var(--color-textbox);
-    width: 100%;
-}
-
-.hamburger-menu > div > ul > li > a{
+.trade-card-zoom-button::before{
+    font-family: var(--font-emoji);
     color: var(--color-text);
+    content: "🔍";
+    opacity: 1;
+    font-size: 1.5rem;
 }
-
-/* WHEN THE TOGGLER IS CHECKED, CHANGE THE VISIBILITY TO VISIBLE :  */
-
-.toggler:checked ~ .hamburger-menu > div > ul{
-    transition: visibility 0.4s ease;
-    transition-delay: 0.1s;
-    visibility: visible;
+.trade-card-toggler:checked ~ div.trade-member, div.trade-location, img.trade-image {
+    max-width: 20rem;
 }
-
-.toggler:checked ~ .hamburger-menu > div > ul > li > a:hover{
-    background-color: var(--color-background);
+.trade-card-toggler:checked ~ img.trade-image {
+    max-width: 15rem;
+    max-height: 15rem;
+    object-fit: cover;
+    transform: rotate(0deg);
 }
-
-
+.trade-card-toggler:checked ~ div.trade-description {
+    max-height: 20rem;
+    max-width: 30rem;
+    transition: max-height 1s ease;
+    transition: max-width 1s ease;
+    -webkit-line-clamp: none;
+}
     </style>
 </head>
 
 <body class="wholescreen">
 <div id="logo" class="logo">
-    <img src="handcircle-logo.svg" style="width:5rem; height:5rem;" alt="" class="logo-appear">
+    <img src="handcircle-logo.svg" style="width:5rem; height:5rem;" alt="" class="logo-appear logo-spin">
 </div>
 
 <div class="sitetitle">
@@ -180,7 +85,7 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
         <div class="category">Contact</div>
         <div class="category">Members</div>
         <hr>   
-        <div class="category">Help</div>
+        <div class="category attention-pulse">Help</div>
     </div>
 </div>
 
@@ -209,24 +114,28 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
         <div class="trade-card post-new">
             <div style="grid-area: whole-card; text-align: center; place-items:center;">
             <p>Post a new offer.</p>
-            <p style="font-size:300%">+</p>
+            <p style="font-size:300%; font-family:'Noto Emoji'">➕</p>
 
             </div>
         </div>
     
         <div class="trade-card">
-            <a><img src="pic1.png" class="trade-image"></a>
+            <input type="checkbox" class="trade-card-toggler">
+            <div class="trade-card-zoom-button"></div>
+            <img src="pic1.png" class="trade-image">
             <div class="trade-description">
                 I may struggle with geography, but I'm sure I'm somewhere around here. She did a happy dance because all of the socks from the dryer matched.
                 I am never at home on Sundays.
             </div>
             <div class="trade-location">Bilbar Springs</div>
             <div class="trade-member">Galaad Corleone </div>
-            <div class="trade-price">2 </div>
+            <div class="trade-price">2</div>
         </div>
 
         <div class="trade-card">
-            <a><img src="pic2.png" class="trade-image"></a>
+            <input type="checkbox" class="trade-card-toggler">
+            <div class="trade-card-zoom-button"></div>
+            <img src="pic2.png" class="trade-image">
             <div class="trade-description">
                 The Guinea fowl flies through the air with all the grace of a turtle.
             </div>
@@ -235,7 +144,9 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
             <div class="trade-price">3.5</div>
         </div>
         <div class="trade-card">
-            <a><img src="pic3.png" class="trade-image"></a>
+            <input type="checkbox" class="trade-card-toggler">
+            <div class="trade-card-zoom-button"></div>
+            <img src="pic3.png" class="trade-image">
             <div class="trade-description">
                 His ultimate dream fantasy consisted of being content and sleeping eight hours in a row. The light in his life was actually a fire burning all around him.
             </div>
@@ -244,7 +155,9 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
             <div class="trade-price">1</div>
         </div>
         <div class="trade-card">
-            <a><img src="pic4.png" class="trade-image"></a>
+            <input type="checkbox" class="trade-card-toggler">
+            <div class="trade-card-zoom-button"></div>
+            <img src="pic4.png" class="trade-image">
             <div class="trade-description">
                 He always wore his sunglasses at night.
             </div>
@@ -254,7 +167,9 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
         </div>
 
         <div class="trade-card">
-            <a><img src="pic2.png" class="trade-image"></a>
+            <input type="checkbox" class="trade-card-toggler">
+            <div class="trade-card-zoom-button"></div>
+            <img src="pic2.png" class="trade-image">
             <div class="trade-description">
                 The Guinea fowl flies through the air with all the grace of a turtle.
             </div>
@@ -263,17 +178,21 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
             <div class="trade-price">3.5</div>
         </div>
         <div class="trade-card">
-            <a><img src="pic1.png" class="trade-image"></a>
+            <input type="checkbox" class="trade-card-toggler">
+            <div class="trade-card-zoom-button"></div>
+            <img src="pic1.png" class="trade-image">
             <div class="trade-description">
                 I may struggle with geography, but I'm sure I'm somewhere around here. She did a happy dance because all of the socks from the dryer matched.
                 I am never at home on Sundays.
             </div>
             <div class="trade-location">Bilbar Springs</div>
             <div class="trade-member">Galaad Corleone </div>
-            <div class="trade-price">2 </div>
+            <div class="trade-price">2</div>
         </div>
         <div class="trade-card">
-            <a><img src="pic3.png" class="trade-image"></a>
+            <input type="checkbox" class="trade-card-toggler">
+            <div class="trade-card-zoom-button"></div>
+            <img src="pic3.png" class="trade-image">
             <div class="trade-description">
                 His ultimate dream fantasy consisted of being content and sleeping eight hours in a row. The light in his life was actually a fire burning all around him.
             </div>
@@ -282,17 +201,21 @@ TOP AT -10PX ABOVE THE MIDDLE ONE AND BOTTOM ONE IS 10PX BELOW THE MIDDLE: */
             <div class="trade-price">1</div>
         </div>
         <div class="trade-card">
-            <a><img src="pic1.png" class="trade-image"></a>
+            <input type="checkbox" class="trade-card-toggler">
+            <div class="trade-card-zoom-button"></div>
+            <img src="pic1.png" class="trade-image">
             <div class="trade-description">
                 I may struggle with geography, but I'm sure I'm somewhere around here. She did a happy dance because all of the socks from the dryer matched.
                 I am never at home on Sundays.
             </div>
             <div class="trade-location">Bilbar Springs</div>
             <div class="trade-member">Galaad Corleone </div>
-            <div class="trade-price">2 </div>
+            <div class="trade-price">2</div>
         </div>
         <div class="trade-card">
-            <a><img src="pic4.png" class="trade-image"></a>
+            <input type="checkbox" class="trade-card-toggler">
+            <div class="trade-card-zoom-button"></div>
+            <img src="pic4.png" class="trade-image">
             <div class="trade-description">
                 He always wore his sunglasses at night.
             </div>

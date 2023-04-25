@@ -1,7 +1,9 @@
 /* Google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400;1,600;1,900&display=swap');
-/* constant definitions */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@500&display=swap');
+
+/* global constants */
 :root{
     --color-background: #a2ba96; /* muted green */
     --color-background2: #526a46; /* darker green */
@@ -15,12 +17,11 @@
     --background-logo-size: 25rem;
     --site-title: 'Top of the South Community Shares';
     --site-subtitle: 'Tasman Bay – Motueka to Nelson';
-    --svg-link: url('data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><text font-family="system-ui" font-size="0.7rem" text-anchor="middle" x="50%" y="90%">🔗</text></svg>');
-    --svg-left-dingbat: url('data:image/svg+xml;utf8,<svg viewBox="0 0 18 15" xmlns="http://www.w3.org/2000/svg"><text font-family="system-ui" font-size="1.5rem" text-anchor="middle" x="50%" y="100%">☞</text></svg>');
-    --svg-right-dingbat: url('data:image/svg+xml;utf8,<svg viewBox="0 0 18 15" xmlns="http://www.w3.org/2000/svg"><text font-family="system-ui" font-size="1.5rem" text-anchor="middle" x="53%" y="100%">☜</text></svg>');
+    --svg-link: url('data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><text font-family="Noto Emoji" font-size="0.7rem" text-anchor="middle" x="50%" y="90%">🔗</text></svg>');
     --topbutton-width: 6rem;
     --font-main: 'Cabin';
     --font-accent: 'Playfair Display';
+    --font-emoji: 'Noto Emoji';
 }
 /* typography */
 html{
@@ -47,10 +48,7 @@ p{
     line-height: 1.75rem;
     hyphens: auto;
 }
-a:hover{
-    cursor: pointer;
-}
-a.textanchor::before{
+a::before{
     content: "";
     background-color: currentColor;
     color: var(--color-highlight);
@@ -58,6 +56,10 @@ a.textanchor::before{
     display: inline-block;
     width: 1em;
     height: 1em;
+}
+a:hover{
+    cursor: pointer;
+    text-decoration: underline 0.2ch var(--color-highlight);
 }
 img.thumbnail{
     max-width: 6rem;
@@ -127,11 +129,18 @@ body::before{ /* logo in the background; needs transparent body background */
     background-color: var(--color-textbox);
 }
 .logo-appear{
-    animation: logo-appear 3s cubic-bezier(0.3, 3, 0.9, 1) 1;
+    animation: logo-appear 3s cubic-bezier(0.3, 2, 0.9, 1) 1;
 }
 @keyframes logo-appear {
     from  {transform: rotate(120deg)}
     to    {transform: rotate(0deg)}
+}
+.logo-spin:hover{
+    animation: logo-spin 1s ease-out infinite;
+}
+@keyframes logo-spin {
+    from  {transform: rotate(0deg)}
+    to    {transform: rotate(60deg)}
 }
 .sitetitle{
     grid-area: title;
@@ -221,14 +230,15 @@ body::before{ /* logo in the background; needs transparent body background */
     float: left;
 }
 .attention-pulse{
-    animation: attention-pulse 60s infinite;
-
+    animation: attention-pulse 20s infinite;
+    animation-delay: 5s;
 }
 @keyframes attention-pulse {
-    97.5%   {transform: rotate(0deg) scale(100%)}
-    98.0%   {transform: rotate(-3deg) scale(110%)}
-    98.5%   {transform: rotate(-6deg) scale(110%)}
-    99.0%   {transform: rotate(0deg) scale(100%)}
+    0%   {transform: translateX(0)}
+    1%   {transform: translateX(0.3ch)}
+    2%   {transform: translateX(0)}
+    3%   {transform: translateX(0.5ch)}
+    4%   {transform: translateX(0)}
 }
 
 /* miscellaneous page elements */
@@ -284,21 +294,15 @@ hr{
 }
 .news-date::before{
     margin-right: 1ch;
-    content: "";
-    background-color: var(--color-background);
-    mask-image: var(--svg-left-dingbat);
-    display: inline-block;
-    width: 1em;
-    height: 1em;
+    color: var(--color-background);
+    font-family: var(--font-emoji);
+    content: "👉";
 }
 .news-date::after{
     margin-left: 1ch;
-    content: "";
-    background-color: var(--color-background);
-    mask-image: var(--svg-right-dingbat);
-    display: inline-block;
-    width: 1em;
-    height: 1em;
+    color: var(--color-background);
+    font-family: var(--font-emoji);
+    content: "👈";
 }
 .news-body{
     text-align: left;
@@ -332,8 +336,8 @@ hr{
 /* trade cards */
 
 .trade-card{
-    min-width: 15rem;
-    max-height: 15rem;
+    min-width: 18rem;
+    min-height: 12rem;
     background-color: var(--color-textbox);
     padding: 1rem;
     border: solid 0.5ch var(--color-textbox);
@@ -341,15 +345,16 @@ hr{
     border-radius: 0.5rem;
     text-align: left;
     display: inline-grid;
-    grid-template-columns: 9rem 9rem;
-    grid-template-rows: 1.5rem 1.5rem 1.5rem 1.5rem 1.5rem minmax(2.5em,1fr) ;
+    grid-template-columns: minmax(9rem, 1fr) minmax(9rem, 1fr);
+    grid-template-rows: minmax(1.5rem,1fr) 1.5rem 1.5rem 1.5rem 1.5rem minmax(2.5em,1fr) minmax(0,max-content);
     grid-template-areas:
-        "image ."
+        "image activator"
         "image location"
         "image member"
         "image price"
         "image ."
         "description description"
+        "contact transact"
     ;
     grid-gap: 0.5ch;
     vertical-align: top;
@@ -362,7 +367,11 @@ hr{
         "whole-card whole-card"
         "whole-card whole-card"
         "whole-card whole-card"
+        "whole-card whole-card"
     ;
+}
+.trade-card.post-new:hover{
+    cursor: pointer;
 }
 .trade-card:hover{
     box-shadow: 0.5ch 0.5ch 1ch black;
@@ -373,60 +382,70 @@ hr{
 .trade-card:hover .trade-image{
     transition-duration: 0.3s;
     border-radius:0;
-    transform: rotate(-5deg);
-    box-shadow: 0.1ch 0.1ch 0.3ch black;
+    transform: rotate(-5deg) scale(110%) translateX(-0.5rem) translateY(-0.5rem);
+    box-shadow: 0.2ch 0.2ch 0.4ch black;
 }
 .trade-image{
     grid-area: image;
-    width: 9rem;
-    height: 9rem;
+    max-width: 9rem;
+    max-height: 9rem;
     object-fit: cover;
     border-radius: 9rem;
     transition-duration: 0.3s;
+    overflow: visible;
 }
 .trade-description{
     grid-area: description;
-    max-height: 5em;
+    max-width: 18rem;
+    max-height: 3rem;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; /* start showing ellipsis when 2rd line is reached */
+    -webkit-line-clamp: 2; /* truncate with ellipsis on 2nd line */
+    transition: max-height 1s ease;
+    transition: max-width 1s ease;
 }
-.trade-description::before{}
+.trade-member:hover, .trade-location:hover{
+    text-decoration: underline 0.3ch var(--color-highlight);
+    text-underline-offset: 0.2ch;
+    cursor: pointer;
+}
 .trade-member{
     grid-area: member;
-    min-width: 10ch;
-    max-width: 30ch;
+    max-width: 13ch;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 .trade-member::before{
-    content: "🥸";
-    margin-right: 1ch;
+    font-family: var(--font-emoji);
+    content: "🙂";
+    margin-right: 0.5ch;
     overflow: hidden;
 }
 .trade-location{
     grid-area: location;
-    min-width: 10ch;
-    max-width: 30ch;
+    max-width: 13ch;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 .trade-location::before{
+    font-family: var(--font-emoji);
     content: "🏠";
-    margin-right: 1ch;
+    margin-right: 0.5ch;
 }
 .trade-price{
     grid-area: price;
+    width: 13ch;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 .trade-price::before{
-    content: "💰";
-    margin-right: 1ch;
+    font-family: var(--font-emoji);
+    content: "🫴";
+    margin-right: 0.5ch;
 }
 .trade-price::after{
     content: "ℏ";
@@ -441,4 +460,91 @@ hr{
     border-radius: 0.5ch;
     transition-duration: 0.3s;
     cursor: pointer;
+}
+
+
+
+/* hamburger menu adapted from https://codepen.io/alvarotrigo/pen/PoJGObg */
+.hamburger-button{
+    background-color: var(--color-textbox);
+    grid-area: nav title subtitle main;
+}
+.toggler{
+    z-index: 12;
+    height: 3rem;
+    width: 3rem;
+    position: absolute;
+    top: 0rem;
+    left: calc(100% - 3.5rem);
+    cursor: pointer;
+    opacity: 0;
+}
+
+.hamburger{
+    z-index: 11;
+    position: absolute;
+    top: 0rem;
+    left: calc(100% - 3rem);
+    height: 3rem;
+    width: 3rem;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hamburger > div{ /* hamburger middle line */
+    position: relative;
+    background: var(--color-text);
+    height: 0.4ch;
+    width: 2rem;
+    transition: all  0.4s ease;
+}
+.hamburger > div::before,
+.hamburger > div::after{ /* hamburger top and bottom lines */
+    content: '';
+    position: absolute;
+    top: -1ch;
+    background: var(--color-text);
+    width: 2rem;
+    height: 0.4ch;
+    transition: all  0.4s ease;
+}
+
+.hamburger > div::after{ /* needed for spacing the bottom hamburger line */
+    top: 1ch;
+}
+
+.toggler:checked + .hamburger > div{ /* disappear the middle line when activated */
+    background: var(--color-textbox);
+}
+
+.toggler:checked + .hamburger > div::before{ /* rotate the top and bottom lines into a cross when activated */
+    top: 0;
+    transform: rotate(45deg);
+    background: var(--color-text);
+}
+.toggler:checked + .hamburger > div::after{
+    top: 0;
+    transform: rotate(135deg);
+    background: var(--color-text);
+}
+.hamburger-menu{
+    background: var(--color-textbox);
+    z-index: 10; /* highest z level – apart from the hamburger itself */
+    width: 9rem;
+    height: 20rem;
+    position: absolute;
+    top: 0rem;
+    left: 100%;
+    border-radius: 0.5rem 0 0 0.5rem;
+    padding: 2rem;
+    font-weight: bold;
+    transition: all 0.4s ease-in-out;
+}
+.toggler:checked ~ .hamburger-menu{ /* pull menu into place when activated */
+    position: absolute;
+    width: 9rem;
+    height: 20rem;
+    left: calc(100% - 13rem);
+    box-shadow: 0 0 0.75ch black;
 }
