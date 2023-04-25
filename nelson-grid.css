@@ -381,8 +381,8 @@ hr{
 }
 .trade-card:hover .trade-image{
     transition-duration: 0.3s;
-    border-radius:0;
-    transform: rotate(-5deg) scale(110%) translateX(-0.5rem) translateY(-0.5rem);
+    border-radius: 0;
+    transform: rotate(-5deg);
     box-shadow: 0.2ch 0.2ch 0.4ch black;
 }
 .trade-image{
