@@ -346,7 +346,7 @@ hr{
     text-align: left;
     display: inline-grid;
     grid-template-columns: minmax(9rem, 1fr) minmax(9rem, 1fr);
-    grid-template-rows: minmax(1.5rem,1fr) 1.5rem 1.5rem 1.5rem 1.5rem minmax(2.5em,1fr) minmax(0,max-content);
+    grid-template-rows: 1.5rem 1.5rem 1.5rem 1.5rem minmax(1.5rem,max-content) minmax(2.5em,max-content) minmax(0,fit-content);
     grid-template-areas:
         "image activator"
         "image location"
@@ -354,7 +354,7 @@ hr{
         "image price"
         "image ."
         "description description"
-        "contact transact"
+        "buttons buttons"
     ;
     grid-gap: 0.5ch;
     vertical-align: top;
@@ -397,13 +397,12 @@ hr{
 .trade-description{
     grid-area: description;
     max-width: 18rem;
-    max-height: 3rem;
+    max-height: 2.5rem;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2; /* truncate with ellipsis on 2nd line */
     transition: max-height 1s ease;
-    transition: max-width 1s ease;
 }
 .trade-member:hover, .trade-location:hover{
     text-decoration: underline 0.3ch var(--color-highlight);
@@ -450,7 +449,17 @@ hr{
 .trade-price::after{
     content: "ℏ";
 }
-
+.trade-buttons{
+    grid-area: buttons;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    display: floatbox;
+    margin: auto;
+}
+.trade-button{
+    float:left;
+}
 .category{
     padding: 0.5ch;
 }

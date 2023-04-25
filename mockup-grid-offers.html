@@ -36,22 +36,27 @@
     opacity: 1;
     font-size: 1.5rem;
 }
-.trade-card-toggler:checked ~ div.trade-member, div.trade-location, img.trade-image {
-    max-width: 20rem;
+.trade-card-toggler:checked + div.trade-card-zoom-button {
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    scale: 1.5;
 }
 .trade-card-toggler:checked ~ img.trade-image {
-    max-width: 15rem;
-    max-height: 15rem;
     object-fit: cover;
     transform: rotate(0deg);
     border-radius: 0;
 }
 .trade-card-toggler:checked ~ div.trade-description {
-    max-height: 20rem;
-    max-width: 30rem;
+    max-height: 15rem;
     transition: max-height 1s ease;
-    transition: max-width 1s ease;
     -webkit-line-clamp: none;
+}
+.trade-card-toggler:checked ~ div.trade-buttons {
+    visibility: visible;
+    opacity: 1;
+    height: 2rem;
+    transition: opacity 1s ease 0.3s; 
 }
     </style>
 </head>
@@ -114,9 +119,8 @@
 
         <div class="trade-card post-new">
             <div style="grid-area: whole-card; text-align: center; place-items:center;">
-            <p>Post a new offer.</p>
-            <p style="font-size:300%; font-family:'Noto Emoji'">➕</p>
-
+                <p>Post a new offer.</p>
+                <p style="font-size:300%; font-family:'Noto Emoji'">➕</p>
             </div>
         </div>
     
@@ -125,12 +129,18 @@
             <div class="trade-card-zoom-button"></div>
             <img src="pic1.png" class="trade-image">
             <div class="trade-description">
+                <strong>TEST THIS ONE.</strong>
                 I may struggle with geography, but I'm sure I'm somewhere around here. She did a happy dance because all of the socks from the dryer matched.
                 I am never at home on Sundays.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </div>
             <div class="trade-location">Bilbar Springs</div>
             <div class="trade-member">Galaad Corleone </div>
             <div class="trade-price">2</div>
+            <div class="trade-buttons">
+                <div class="button trade-button">Trade</div>
+                <div class="button trade-button">Contact</div>
+            </div>
         </div>
 
         <div class="trade-card">
@@ -143,6 +153,10 @@
             <div class="trade-member">Astaroth Weasley </div>
             <div class="trade-location">Soubridge</div>
             <div class="trade-price">3.5</div>
+            <div class="trade-buttons">
+                <div class="button trade-button">Trade</div>
+                <div class="button trade-button">Contact</div>
+            </div>
         </div>
         <div class="trade-card">
             <input type="checkbox" class="trade-card-toggler">
@@ -154,6 +168,10 @@
             <div class="trade-member">Ebenezer Targaryen </div>
             <div class="trade-location">Burchamken</div>
             <div class="trade-price">1</div>
+            <div class="trade-buttons">
+                <div class="button trade-button">Trade</div>
+                <div class="button trade-button">Contact</div>
+            </div>
         </div>
         <div class="trade-card">
             <input type="checkbox" class="trade-card-toggler">
@@ -165,6 +183,10 @@
             <div class="trade-member">Hector Finch </div>
             <div class="trade-location">Domitia</div>
             <div class="trade-price">6</div>
+            <div class="trade-buttons">
+                <div class="button trade-button">Trade</div>
+                <div class="button trade-button">Contact</div>
+            </div>
         </div>
 
         <div class="trade-card">
@@ -177,6 +199,10 @@
             <div class="trade-member">Astaroth Weasley </div>
             <div class="trade-location">Soubridge</div>
             <div class="trade-price">3.5</div>
+            <div class="trade-buttons">
+                <div class="button trade-button">Trade</div>
+                <div class="button trade-button">Contact</div>
+            </div>
         </div>
         <div class="trade-card">
             <input type="checkbox" class="trade-card-toggler">
@@ -189,6 +215,10 @@
             <div class="trade-location">Bilbar Springs</div>
             <div class="trade-member">Galaad Corleone </div>
             <div class="trade-price">2</div>
+            <div class="trade-buttons">
+                <div class="button trade-button">Trade</div>
+                <div class="button trade-button">Contact</div>
+            </div>
         </div>
         <div class="trade-card">
             <input type="checkbox" class="trade-card-toggler">
@@ -200,6 +230,10 @@
             <div class="trade-member">Ebenezer Targaryen </div>
             <div class="trade-location">Burchamken</div>
             <div class="trade-price">1</div>
+            <div class="trade-buttons">
+                <div class="button trade-button">Trade</div>
+                <div class="button trade-button">Contact</div>
+            </div>
         </div>
         <div class="trade-card">
             <input type="checkbox" class="trade-card-toggler">
@@ -212,6 +246,10 @@
             <div class="trade-location">Bilbar Springs</div>
             <div class="trade-member">Galaad Corleone </div>
             <div class="trade-price">2</div>
+            <div class="trade-buttons">
+                <div class="button trade-button">Trade</div>
+                <div class="button trade-button">Contact</div>
+            </div>
         </div>
         <div class="trade-card">
             <input type="checkbox" class="trade-card-toggler">
@@ -223,6 +261,10 @@
             <div class="trade-member">Hector Finch </div>
             <div class="trade-location">Domitia</div>
             <div class="trade-price">6</div>
+            <div class="trade-buttons">
+                <div class="button trade-button">Trade</div>
+                <div class="button trade-button">Contact</div>
+            </div>
         </div>
         </div>
 
