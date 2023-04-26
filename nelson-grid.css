@@ -373,6 +373,10 @@ hr{
 .trade-card.post-new:hover{
     cursor: pointer;
 }
+.trade-card.post-new:hover .pulse-circle::before{
+    visibility: visible;
+    animation: pulse-circle 1.25s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+}
 .trade-card:hover{
     box-shadow: 0.5ch 0.5ch 1ch black;
     transition-duration: 0.3s;
@@ -447,7 +451,7 @@ hr{
     margin-right: 0.5ch;
 }
 .trade-price::after{
-    content: "ℏ";
+    content: " ℏ"; /* an 'hours' currency unit */
 }
 .trade-buttons{
     grid-area: buttons;
