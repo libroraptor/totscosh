@@ -283,7 +283,7 @@ hr{
     margin: 1rem auto 1rem auto;
     padding: 2rem;
     border-radius: 0.5rem;
-    max-width: 70rem;
+    max-width: 60ch;
 }
 .news-headline{
     text-align: center;
@@ -307,10 +307,7 @@ hr{
 .news-body{
     text-align: left;
     margin: 1rem auto 1rem auto;
-    column-width: 30ch;
-    column-count: 3;
-    column-gap: 2rem;
-    column-rule: solid 1px var(--color-background);
+    max-width: 50ch;
 }
 
 /* side menus */
