@@ -1,0 +1,16 @@
+id,x,y,size,IdAsLabel,label,color,fontcolor
+Central,0,0,1.5,TRUE,,Red,white
+Wood,1,0,1.5,FALSE,The Wood,IndianRed,white
+Maitai,2,0,1.5,FALSE,Maitai Valley,Red,white
+Brook,1,-1,1.5,FALSE,The Brook,Red,white
+South,0,-1,1.5,FALSE,Nelson South,Red!50,white
+Victory,-1,-1,1.5,FALSE,Victory Square,Red!50,white
+Bishopsdale,1,-2,1.5,TRUE,,Red!20,black
+Washington,-1,0,1.5,FALSE,Washington Valley,Red!50,white
+Port,-1,1,1.5,TRUE,,Red!50,white
+Tahunanui,-2,0,1.5,TRUE,,Red!20,black
+Nayland,-2,-3,1.5,TRUE,,white,black
+Annesbrook,-1,-3,1.5,TRUE,,white,black
+Stoke,-1,-4,1.5,TRUE,,white,black
+EnnerGlynn,0,-3,1.5,FALSE,Enner Glynn,Red!20,black
+Atawhai,1,1,1.5,TRUE,,Red,white

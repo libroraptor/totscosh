@@ -19,19 +19,19 @@
     --site-subtitle: 'Tasman Bay – Motueka to Nelson';
     --svg-link: url('data:image/svg+xml;utf8,<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><text font-family="Noto Emoji" font-size="0.7rem" text-anchor="middle" x="50%" y="90%">🔗</text></svg>');
     --topbutton-width: 6rem;
-    --font-main: 'Cabin';
-    --font-accent: 'Playfair Display';
-    --font-emoji: 'Noto Emoji';
+    --font-main: Cabin, Roboto, Oxygen, Ubuntu, 'Droid Sans', Helvetica, Arial, Tahoma, sans-serif;
+    --font-accent: 'Playfair Display', Palatino, Garamond, Bodoni, Didot, serif;
+    --font-emoji: 'Noto Emoji', 'Segoe UI', '-apple-system', BlinkMacSystemFont, 'Fira Sans', 'Droid Sans', Cantarell;
 }
 /* typography */
 html{
     font-size: 14px;
-    font-family: var(--font-main), sans-serif;
+    font-family: var(--font-main);
     font-variant-ligatures: common-ligatures;
     transition-duration: 0.3s;
 }
 h1, h2, h3{
-    font-family: var(--font-accent), cursive;
+    font-family: var(--font-accent);
     font-style: normal;
 }
 h1{ /* used only against background, mainly for text-to-speech screen readers */
@@ -49,6 +49,7 @@ p{
     hyphens: auto;
 }
 a::before{
+/*
     content: "";
     background-color: currentColor;
     color: var(--color-highlight);
@@ -56,14 +57,30 @@ a::before{
     display: inline-block;
     width: 1em;
     height: 1em;
+*/
+}
+a{
+    text-decoration: underline 0.3ch var(--color-highlight);
+    text-underline-offset: 0.2ch;
+    transition: all .3s ease;
+    text-decoration-skip-ink: none;
 }
 a:hover{
     cursor: pointer;
-    text-decoration: underline 0.2ch var(--color-highlight);
+    text-decoration: underline 1.9ch var(--color-highlight);
+    text-underline-offset: -1.4ch;
 }
 img.thumbnail{
     max-width: 6rem;
     max-height: 6rem;
+}
+ul{
+    list-style-type: square;
+    list-style-position:outside;
+    padding-left: 2rem;
+}
+li{
+    line-height: 150%;
 }
 
 /* whole-viewport grid */
@@ -283,7 +300,7 @@ hr{
     margin: 1rem auto 1rem auto;
     padding: 2rem;
     border-radius: 0.5rem;
-    max-width: 60ch;
+    max-width: min(60ch, 100%);
 }
 .news-headline{
     text-align: center;
@@ -295,14 +312,14 @@ hr{
 .news-date::before{
     margin-right: 1ch;
     color: var(--color-background);
-    font-family: var(--font-emoji);
-    content: "👉";
+    font-family: var(--font-accent);
+    content: "‹";
 }
 .news-date::after{
     margin-left: 1ch;
     color: var(--color-background);
-    font-family: var(--font-emoji);
-    content: "👈";
+    font-family: var(--font-accent);
+    content: "›";
 }
 .news-body{
     text-align: left;
@@ -477,7 +494,7 @@ hr{
 /* hamburger menu adapted from https://codepen.io/alvarotrigo/pen/PoJGObg */
 .hamburger-button{
     background-color: var(--color-textbox);
-    grid-area: nav title subtitle main;
+    grid-area: nav;
 }
 .toggler{
     z-index: 12;

@@ -1,0 +1,16 @@
+id,x,y,size,IdAsLabel,label
+Central,0,0,1.5,TRUE,
+Wood,1,0,1.5,FALSE,The Wood
+Maitai,2,0,1.5,FALSE,Maitai Valley
+Brook,1,-1,1.5,FALSE,The Brook
+South,0,-1,1.5,FALSE,Nelson South
+Victory,-1,-1,1.5,FALSE,Victory Square
+Bishopsdale,1,-2,1.5,TRUE,
+Washington,-1,0,1.5,FALSE,Washington Valley
+Port,-1,1,1.5,TRUE,
+Tahunanui,-2,0,1.5,TRUE,
+Nayland,-2,-3,1.5,TRUE,
+Annesbrook,-1,-3,1.5,TRUE,
+Stoke,-1,-4,1.5,TRUE,
+EnnerGlynn,0,-3,1.5,FALSE,Enner Glynn
+Atawhai,1,1,1.5,TRUE,
