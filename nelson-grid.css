@@ -494,7 +494,9 @@ hr{
 /* hamburger menu adapted from https://codepen.io/alvarotrigo/pen/PoJGObg */
 .hamburger-button{
     background-color: var(--color-textbox);
-    grid-area: nav;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 .toggler{
     z-index: 12;
