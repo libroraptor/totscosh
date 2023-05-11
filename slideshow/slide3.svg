@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="slide3.svg"
+   inkscape:version="1.0 (4035a4f, 2020-05-01)"
+   inkscape:export-ydpi="96"
+   inkscape:export-xdpi="96"
+   inkscape:export-filename="/Users/alistair/Documents/GitHub/totscosh/slide4.jpg.png"
+   id="svg1048"
+   version="1.1"
+   viewBox="0 0 793.74997 793.75002"
+   height="3000"
+   width="3000">
+  <defs
+     id="defs1042">
+    <clipPath
+       id="clipPath1139"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         id="path1141"
+         style="opacity:0.2;fill:#ff0000;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         d="M 219.43362,354.46565 V 89.882294 H 1013.1836 V 354.46565 Z" />
+    </clipPath>
+    <clipPath
+       id="clipPath1143"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         d="M 210.71233,38.380937 H 475.29567 V 832.13093 H 210.71233 Z"
+         style="opacity:0.2;fill:#ff0000;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         id="path1145" />
+    </clipPath>
+    <clipPath
+       id="clipPath1147"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         d="M 778.33696,-208.73151 H 1042.9203 V 585.01848 H 778.33696 Z"
+         style="opacity:0.2;fill:#ff0000;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         id="path1149" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     inkscape:window-maximized="0"
+     inkscape:window-y="25"
+     inkscape:window-x="0"
+     inkscape:window-height="689"
+     inkscape:window-width="1252"
+     inkscape:showpageshadow="false"
+     units="px"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     inkscape:cy="1281.7858"
+     inkscape:cx="1570.9229"
+     inkscape:zoom="0.10814071"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata1045">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <g
+       id="g1160">
+      <image
+         sodipodi:absref="/Users/alistair/Documents/GitHub/totscosh/slideshow/4 slashio-photography-UQR3Z3gBFsc-unsplash.jpg"
+         xlink:href="4%20slashio-photography-UQR3Z3gBFsc-unsplash.jpg"
+         clip-path="url(#clipPath1143)"
+         id="image1060"
+         style="image-rendering:optimizeSpeed"
+         preserveAspectRatio="none"
+         height="793.75"
+         width="534.8692"
+         x="49.207546"
+         y="38.380932" />
+      <image
+         sodipodi:absref="/Users/alistair/Documents/GitHub/totscosh/slideshow/3 rachael-gorjestani-g8xdO1Q1kIg-unsplash.jpg"
+         xlink:href="3%20rachael-gorjestani-g8xdO1Q1kIg-unsplash.jpg"
+         transform="translate(-303.04129,247.11245)"
+         clip-path="url(#clipPath1147)"
+         id="image1088"
+         style="image-rendering:optimizeSpeed"
+         preserveAspectRatio="none"
+         height="793.75"
+         width="529.16656"
+         x="693.48035"
+         y="-208.73151" />
+      <image
+         sodipodi:absref="/Users/alistair/Documents/GitHub/totscosh/slideshow/3 elaine-casap-qgHGDbbSNm8-unsplash.jpg"
+         xlink:href="3%20elaine-casap-qgHGDbbSNm8-unsplash.jpg"
+         clip-path="url(#clipPath1139)"
+         transform="rotate(90,240.82365,59.770971)"
+         id="image1102"
+         style="image-rendering:optimizeSpeed"
+         preserveAspectRatio="none"
+         height="529.16663"
+         width="793.75"
+         x="216.98376"
+         y="89.882294" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:7.93749995;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+         d="M 210.71233,832.13092 V 38.380942"
+         id="path1151" />
+      <path
+         id="path1153"
+         d="M 475.29567,832.13092 V 38.38094"
+         style="fill:none;stroke:#ffffff;stroke-width:7.9375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>

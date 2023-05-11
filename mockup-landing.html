@@ -7,7 +7,6 @@
         box-sizing: border-box;
     }
     html{
-        scroll-behavior: smooth;
     }
     hr{
         margin: 1rem auto 1rem auto;
@@ -27,10 +26,12 @@
     .login-page-wrapper{
         display: grid;
             grid-template-areas:
-                "left" "right";
-            grid-template-rows: 1fr 1fr;
+                "left" 
+                "right";
+            grid-template-rows: 100vw max-content;
             grid-template-columns: 1fr;
         width: 100vw;
+        height: 200vh;
         overflow-y: scroll;
     }
     }
@@ -50,7 +51,7 @@
     .slogan{
         font-family: var(--font-accent);
         font-style: italic;
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
     .centered{
         margin: 1rem auto 1rem auto;
@@ -105,8 +106,8 @@
     }
     @media (orientation:portrait){
     .image img{
-        width:100vw;
-        height: 100%;
+        width:100%;
+        height: 100vw;
         object-position: 50% 50%;
         object-fit: cover;
     }
@@ -114,13 +115,27 @@
     /* Contents */
     .content{
         width:100%;
+        height: fit-content;
         position:absolute;
         bottom: 4rem;
         overflow:hidden;
         grid-area: left;
+        display:block;
+    }
+    @media (orientation: portrait){
+    .content{
+        width:100%;
+        height: fit-content;
+        position:absolute;
+        top: 0;
+        overflow:hidden;
+        grid-area: left;
+        display:block;
+        }
     }
     .content-txt{
-        align-self:self-end;
+/*        align-self:self-end;
+*/
         float:left;
         position:relative;
         animation:content-s 8s infinite;
@@ -299,21 +314,31 @@
             <div class="slider">
                 <div class="content">
                 <div class="content-txt">
-                    <h2>Join the timebank, trade in time</h2>
+                    <h2>Join the timebank, where time’s our money</h2>
                     <p>Put an hour in, get an hour back.</p>
                 </div>
                 </div>
-                <div class="image"> <img src="slide1.jpg"> </div>
+                <div class="image"> <img src="slide-time.jpg"> </div>
             </div>
 
             <div class="slider">
                 <div class="content">
                 <div class="content-txt">
-                    <h2>Trade with your skills</h2>
+                    <h2>Trade what you do</h2>
                     <p>Teach, garden, knit, plumb, ...</p>
                 </div>
                 </div>
-                <div class="image"> <img src="slide2.jpg"> </div>
+                <div class="image"> <img src="slide-do.jpg"> </div>
+            </div>
+
+            <div class="slider">
+                <div class="content">
+                <div class="content-txt">
+                    <h2>Trade what you produce</h2>
+                    <p>Give time for goods. Get goods for time.</p>
+                </div>
+                </div>
+                <div class="image"> <img src="slide-produce.jpg"> </div>
             </div>
 
             <div class="slider">
@@ -323,17 +348,7 @@
                     <p>Pick up someone’s shopping. Get a ride to the airport.</p>
                 </div>
                 </div>
-                <div class="image"> <img src="pic3.png"> </div>
-            </div>
-
-            <div class="slider">
-                <div class="content">
-                <div class="content-txt">
-                    <h2>Trade what you make</h2>
-                    <p>Give time for goods. Get goods for time.</p>
-                </div>
-                </div>
-                <div class="image"> <img src="pic4.png"> </div>
+                <div class="image"> <img src="slide-life.jpg"> </div>
             </div>
 
             <div class="slider">
@@ -353,7 +368,7 @@
                     <p>Companionship’s worth the time.</p>
                 </div>
                 </div>
-                <div class="image"> <img src="slide6.jpg"> </div>
+                <div class="image"> <img src="slide-companionship.jpg"> </div>
             </div>
 
             <div class="slider">
@@ -363,7 +378,7 @@
                     <p>It’s about time.</p>
                 </div>
                 </div>
-                <div class="image"> <img src="slide7.jpg"> </div>
+                <div class="image"> <img src="slide-community.jpg"> </div>
             </div>
             </div>
             <div class="switch">
