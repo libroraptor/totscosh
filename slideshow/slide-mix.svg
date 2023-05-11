@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="slide-mix.svg"
+   inkscape:version="1.0 (4035a4f, 2020-05-01)"
+   id="svg841"
+   version="1.1"
+   viewBox="0 0 210 297"
+   height="297mm"
+   width="210mm">
+  <defs
+     id="defs835">
+    <clipPath
+       id="clipPath909"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         style="opacity:0.2;fill:#ff0000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="M 3.6666667e-8,100 H 100 V 200 H 3.6666667e-8 Z"
+         id="path911"
+         sodipodi:nodetypes="ccccc" />
+    </clipPath>
+    <clipPath
+       id="clipPath913"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         sodipodi:nodetypes="ccccc"
+         id="path915"
+         d="M 100,100 H 200 V 200 H 100 Z"
+         style="opacity:0.2;fill:#ff0000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </clipPath>
+    <clipPath
+       id="clipPath917"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         style="opacity:0.2;fill:#ff0000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="M 100,0 H 200 V 100 H 100 Z"
+         id="path919"
+         sodipodi:nodetypes="ccccc" />
+    </clipPath>
+    <clipPath
+       id="clipPath921"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         sodipodi:nodetypes="ccccc"
+         id="path923"
+         d="M 0,0 H 100 V 100 H 0 Z"
+         style="opacity:0.2;fill:#ff0000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     inkscape:window-maximized="0"
+     inkscape:window-y="25"
+     inkscape:window-x="0"
+     inkscape:window-height="689"
+     inkscape:window-width="1252"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="352.20925"
+     inkscape:cx="530.91269"
+     inkscape:zoom="0.45466987"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata838">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <image
+       sodipodi:absref="/Users/alistair/Documents/GitHub/totscosh/slideshow/5 katie-smith-uQs1802D0CQ-unsplash.jpg"
+       xlink:href="5%20katie-smith-uQs1802D0CQ-unsplash.jpg"
+       y="-1.0277996"
+       x="-10.946123"
+       width="134.67484"
+       height="134.67484"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image877"
+       clip-path="url(#clipPath921)"
+       inkscape:export-xdpi="254"
+       inkscape:export-ydpi="254" />
+    <image
+       sodipodi:absref="/Users/alistair/Documents/GitHub/totscosh/slideshow/5 khoi-do-l8GrFoM1SnM-unsplash.jpg"
+       xlink:href="5%20khoi-do-l8GrFoM1SnM-unsplash.jpg"
+       y="69.689728"
+       x="89.612579"
+       width="195.09117"
+       height="273.13995"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image891"
+       clip-path="url(#clipPath913)"
+       transform="translate(0,-100)"
+       inkscape:export-xdpi="254"
+       inkscape:export-ydpi="254" />
+    <image
+       sodipodi:absref="/Users/alistair/Documents/GitHub/totscosh/slideshow/5 wei-cheng-wu-R7lSwItK0LE-unsplash.jpg"
+       xlink:href="5%20wei-cheng-wu-R7lSwItK0LE-unsplash.jpg"
+       y="-2.9317434"
+       x="79.029251"
+       width="159.7614"
+       height="106.50761"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image905"
+       clip-path="url(#clipPath917)"
+       transform="translate(0,100)"
+       inkscape:export-xdpi="254"
+       inkscape:export-ydpi="254" />
+    <image
+       sodipodi:absref="/Users/alistair/Documents/GitHub/totscosh/slideshow/5 jeshoots-com-sMKUYIasyDM-unsplash.jpg"
+       xlink:href="5%20jeshoots-com-sMKUYIasyDM-unsplash.jpg"
+       y="93.716751"
+       x="-60.021244"
+       width="165.03632"
+       height="110.02421"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeSpeed"
+       id="image863"
+       clip-path="url(#clipPath909)"
+       inkscape:export-xdpi="254"
+       inkscape:export-ydpi="254" />
+    <path
+       inkscape:export-ydpi="254"
+       inkscape:export-xdpi="254"
+       sodipodi:nodetypes="cc"
+       id="path925"
+       d="M 3.6666667e-8,100 H 200"
+       style="fill:none;stroke:#ffffff;stroke-width:1.965;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="254"
+       inkscape:export-xdpi="254"
+       sodipodi:nodetypes="cc"
+       id="path927"
+       d="M 100,0 V 200"
+       style="fill:none;stroke:#ffffff;stroke-width:1.965;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>
