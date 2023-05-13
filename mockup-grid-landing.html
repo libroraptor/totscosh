@@ -271,9 +271,10 @@
         color 0.3s ease,
         font-size 1s ease;
 }
-.custom-field input:focus + .placeholder
+.custom-field input:focus + .placeholder,
+.custom-field input:not(:placeholder-shown) + .placeholder
 {
-  top: -0.25rem;
+  top: -0.1rem;
   font-size: 0.75rem;
   color: #222;
 }
@@ -290,12 +291,12 @@
 
             <form style="margin: 1rem auto 1rem auto;">
                 <div class="custom-field">
-                    <input type="text" id="username"/>
+                    <input type="text" id="username" placeholder=" "/>
                     <label for="username" class="placeholder">user name</label>
                 </div>
 
                 <div class="custom-field">
-                    <input type="password" id="password"/>
+                    <input type="password" id="password" placeholder=" "/>
                     <label for="username" class="placeholder">password</label>
                 </div>
 
