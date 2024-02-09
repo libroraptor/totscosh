@@ -6,6 +6,10 @@
 
 /* General fonts */
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Alegreya Sans', Arial, Helvetica, sans-serif;
 }
@@ -237,6 +241,33 @@ p.bio-note {
   padding: 0.5rem;
 }
 
+/* back-to-top button (in footer.html) */
+#backtop {
+  position: fixed;
+  bottom: 5rem;
+  right: 0.75rem;
+  z-index: 99;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  text-decoration: none;
+  text-align: center;
+  padding: 0.5rem;
+  color: white;
+  background: black;
+  border-radius: 2rem;
+  visibility: none;
+  opacity: 0;
+}
+
+
+#backtop.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.button-back-to-top a:hover {
+  background: red;
+}
 
 /* news items */
 
@@ -365,26 +396,25 @@ p.bio-note {
 }
 
 .button {
+  color: white;
   background-color: black;
   padding: 1rem;
   margin: 0.5rem;
-  color: white;
+  box-shadow: 3px 3px 5px 0px gray;
   text-decoration: none;
   vertical-align: middle;
-  box-shadow: none;
   white-space: nowrap;
 }
 
 .button:hover {
-  transform: translateX(-3px, -3px);
-  box-shadow: 3px 3px 5px 0px lightgray;
+  background: red;
 }
 
 .button:active {
-  color: red;
+  color: black;
   text-shadow: 0px 0px 2px white;
   box-shadow: none;
-  transform: none;
+  transform: translateX(3px, 3px);
 }
 
 /* Footer button for external links like the Shinryukan and facebook */
