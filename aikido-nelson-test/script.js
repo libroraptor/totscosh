@@ -32,6 +32,13 @@ const totop = () => window.scroll({
   top: 0, left: 0, behavior: "smooth"
 });
 
+function buttonhover() {
+  document.getElementById("backtop").classList.add("hover");
+}
+function buttonout() {
+  document.getElementById("backtop").classList.remove("hover");
+}
+
 // back-to-top button: show or hide with position
 const togtop = () => {
   if (window.scrollY >= 100) {

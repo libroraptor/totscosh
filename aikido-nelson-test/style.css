@@ -64,6 +64,8 @@ th {
   align-items: center;
   background-size: cover;
   background-position: center;
+  margin: 0px;
+  padding: 0px;
 }
 
 
@@ -257,6 +259,7 @@ p.bio-note {
   border-radius: 2rem;
   visibility: none;
   opacity: 0;
+  aria-hidden="true";
 }
 
 
@@ -265,8 +268,8 @@ p.bio-note {
   opacity: 1;
 }
 
-.button-back-to-top a:hover {
-  background: red;
+#backtop.hover {
+  background-color: red;
 }
 
 /* news items */
@@ -444,7 +447,7 @@ p.bio-note {
 
 /* for belt colour diagrams */
 
-.belt-end {
+.belt-end-container {
   width: 5em;
   height: 1em;
   box-shadow: -3px 0px 5px 1px lightgray;
